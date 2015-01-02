@@ -72,12 +72,14 @@
     UICollectionViewFlowLayout *layout = nil;
     layout = (UICollectionViewFlowLayout*)_titleCollectionView.collectionViewLayout;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
-    layout.itemSize = CGSizeMake(10, 10);
-    NSLog(@"%@",layout);
+    layout.itemSize = CGSizeMake(50, 38);
+    layout.minimumLineSpacing = 10;
+    layout.minimumInteritemSpacing = 10;
+//    NSLog(@"%@",layout);
     
-    _titleCollectionView.backgroundColor = [UIColor redColor];
     _titleCollectionView.dataSource = self;
     _titleCollectionView.delegate = self;
+    self.titleCollectionView.collectionViewLayout = layout;
 }
 
 #pragma mark - 数据
@@ -125,7 +127,8 @@
 }
 
 #pragma mark - UICollectionViewDataSource
-- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView
+     numberOfItemsInSection:(NSInteger)section
 {
     NSInteger count = [_newsTitles count];
     return count;
@@ -136,10 +139,15 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
                   cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell"
-                                                                           forIndexPath:indexPath];
+    UICollectionViewCell *cell = [collectionView
+                                  dequeueReusableCellWithReuseIdentifier:@"newsCell"
+                                                            forIndexPath:indexPath];
     NewsTitleCell *temp = (NewsTitleCell*)cell;
-    temp.newsTitle.text = @"sadasda";
+    temp.backgroundColor = [UIColor greenColor];
+    
+    NSDictionary *dict = _newsTitles[indexPath.row];
+    
+    temp.newsTitle.text = [dict valueForKey:@"cName"];
     return cell;
 }
 
@@ -147,9 +155,17 @@
 
 
 #pragma mark - UICollectionViewDelegateFlowLayout
-- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
+
+- (CGSize)collectionView:(UICollectionView *)collectionView
+                  layout:(UICollectionViewLayout*)collectionViewLayout
+  sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(50, 38);
+    
+//    NSDictionary *dict = _newsTitles[indexPath.row];
+//    NSLog(@"%@",dict);
+//      24+20*2
+    return CGSizeMake(64, 38);
 }
+
 
 @end

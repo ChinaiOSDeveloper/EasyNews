@@ -12,6 +12,5 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    self.backgroundColor = [UIColor redColor];
 }
 @end
