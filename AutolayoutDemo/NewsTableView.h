@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewsTableView : UITableView
+@interface NewsTableView : UICollectionViewCell
 @property (nonatomic,strong) NSDictionary *newsDict;
 @end

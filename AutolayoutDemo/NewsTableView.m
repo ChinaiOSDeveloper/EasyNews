@@ -11,7 +11,7 @@
 #import "WTNetWork.h"
 @interface NewsTableView () <UITableViewDataSource,UITableViewDelegate>
 {
-    
+    UITableView *myTableView;
 }
 @property (nonatomic, strong) NSArray *dataList;
 @end
@@ -26,7 +26,7 @@
         UINib *nib = [UINib nibWithNibName:@"NewsTableViewCell"
                                     bundle:nil];
         
-        [self registerNib:nib
+        [myTableView registerNib:nib
              forCellReuseIdentifier:@"NewsTableViewCell"];
         
     }
