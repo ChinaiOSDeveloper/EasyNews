@@ -282,10 +282,12 @@ static NSURLCache* sharedCache = nil;
     {
         NSTimeInterval endTimeInterval = [[NSDate date] timeIntervalSince1970];
         
-        dispatch_async(dispatch_get_main_queue(), ^{
+        
+        
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             NSDictionary *userInfo = @{@"request": request};
             [[NSNotificationCenter defaultCenter] postNotificationName:WTNetworkingOperationDidFinishNotification object:request userInfo:userInfo];
-        });
+        }];
         
         if (connectionError) {
             if (WTRequestCenterDebugMode) {

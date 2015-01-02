@@ -4,10 +4,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--First View Controller-->
         <scene sceneID="YEF-2I-kcW">
             <objects>
-                <viewController id="fYP-4i-hBO" sceneMemberID="viewController">
+                <viewController id="fYP-4i-hBO" customClass="FirstViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8X1-fh-Xwd"/>
                         <viewControllerLayoutGuide type="bottom" id="nbs-Yt-es3"/>
@@ -16,50 +16,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Xmi-fh-RWG">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YRT-la-eOu">
                                 <rect key="frame" x="0.0" y="64" width="600" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="38" id="chL-Rd-jIn"/>
+                                    <constraint firstAttribute="height" constant="38" id="X6V-yZ-UeH"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tsE-Eo-gin">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="q2j-vI-Kgy">
                                     <size key="itemSize" width="50" height="38"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Collect" id="dG7-OR-7Pp" customClass="NewsTitleCell">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="newsCell" id="ymM-bZ-7DE" customClass="NewsTitleCell">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                             <rect key="frame" x="0.0" y="0.0" width="50" height="38"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OvT-Bm-FMI">
-                                                    <rect key="frame" x="4" y="9" width="42" height="21"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
-                                        <connections>
-                                            <outlet property="newsTitle" destination="OvT-Bm-FMI" id="CkJ-Ma-WoW"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Xmi-fh-RWG" firstAttribute="top" secondItem="8X1-fh-Xwd" secondAttribute="bottom" id="Q3I-TL-tad"/>
-                            <constraint firstItem="Xmi-fh-RWG" firstAttribute="width" secondItem="ild-AU-b5T" secondAttribute="width" id="f09-VB-X7a"/>
-                            <constraint firstItem="Xmi-fh-RWG" firstAttribute="leading" secondItem="ild-AU-b5T" secondAttribute="leading" id="j4b-v1-AnC"/>
+                            <constraint firstItem="YRT-la-eOu" firstAttribute="leading" secondItem="ild-AU-b5T" secondAttribute="leading" id="7qP-lD-re3"/>
+                            <constraint firstAttribute="trailing" secondItem="YRT-la-eOu" secondAttribute="trailing" id="u9p-85-yCr"/>
+                            <constraint firstItem="YRT-la-eOu" firstAttribute="top" secondItem="8X1-fh-Xwd" secondAttribute="bottom" id="w2s-WE-L09"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="MzT-7V-qpy"/>
                     <connections>
+                        <outlet property="titleCollectionView" destination="YRT-la-eOu" id="PB7-vw-Su5"/>
                         <segue destination="ftq-OL-dFH" kind="show" identifier="showArticleDetail" id="qNu-BI-nIf"/>
                     </connections>
                 </viewController>
