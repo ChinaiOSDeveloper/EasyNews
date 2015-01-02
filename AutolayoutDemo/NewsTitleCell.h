@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  NewsTitleCell.h
 //  AutolayoutDemo
 //
 //  Created by song on 15/1/2.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
+@interface NewsTitleCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *newsTitle;
 
 @end
-

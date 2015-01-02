@@ -10,11 +10,15 @@
 #import "NewsTableViewCell.h"
 #import "WTNetWork.h"
 #import "NewsDetailViewController.h"
-
-@interface FirstViewController () <UITableViewDataSource,UITableViewDelegate>
+#import "NewsTitleCell.h"
+@interface FirstViewController () <UICollectionViewDataSource,UICollectionViewDelegate>
 {
 
 }
+
+
+//新闻标题
+@property (nonatomic,strong) NSArray *newsTitles;
 
 @property (nonatomic, strong) NSArray *dataList;
 @end
@@ -58,13 +62,7 @@
     
     
     
-    
-    UINib *nib = [UINib nibWithNibName:@"NewsTableViewCell"
-                                bundle:nil];
-    
-    [self.tableView registerNib:nib
-         forCellReuseIdentifier:@"NewsTableViewCell"];
-    
+
     self.view.backgroundColor = [UIColor whiteColor];
     
     
@@ -77,65 +75,10 @@
  */
 -(void)reloadData
 {
-    NSString *url = @"http://c.m.163.com/nc/article/headline/T1348647853363/0-140.html";
-    
-    [WTRequestCenter getWithURL:url
-                     parameters:nil
-                         option:WTRequestCenterCachePolicyCacheAndWeb
-                       finished:^(NSURLResponse *response, NSData *data) {
-                           
-                           NSArray *result = [WTRequestCenter JSONObjectWithData:data];
-                           self.dataList = [result valueForKey:@"T1348647853363"];
-                           [self.tableView reloadData];
-                           
-//                           AESTEEJV00014JB5
-//                           http://c.m.163.com/nc/article/AEVCOFPO0001124J/full.html
-                       } failed:^(NSURLResponse *response, NSError *error) {
-                           
-                       }];
-}
 
-#pragma mark - UITableViewDataSource
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    NSInteger count = _dataList.count;
-    if (count == 0) {
-        tableView.hidden = YES;
-    }else
-    {
-        tableView.hidden = NO;
-    }
-    return count;
-}
-
-// Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
-// Cell gets various attributes set automatically based on table (separators) and data source (accessory views, editing controls)
-
-- (UITableViewCell *)tableView:(UITableView *)tableView
-         cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    UITableViewCell *cell= nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell"];
-    
-    NewsTableViewCell *temp = (NewsTableViewCell*)cell;
-    temp.newsData = _dataList[indexPath.row];
-    
-    return cell;
 }
 
 
-#pragma mark - UITableViewDelegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    [self performSegueWithIdentifier:@"pushToDetail"
-                              sender:_dataList[indexPath.row]];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return 90;
-}
 
 #pragma mark - UIStoryboardSegue
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -146,4 +89,24 @@
         temp.articleInfo = sender;
     }
 }
+
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [_newsTitles count];
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"Collect"
+                                                  forIndexPath:indexPath];
+    NewsTitleCell *temp = (NewsTitleCell*)cell;
+    temp.newsTitle.text = @"sadasda";
+    return cell;
+    
+}
+#pragma mark - UICollectionViewDelegate
+
+
 @end

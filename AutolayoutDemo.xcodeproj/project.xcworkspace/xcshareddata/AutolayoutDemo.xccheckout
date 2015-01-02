@@ -10,14 +10,14 @@
 	<string>AutolayoutDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>8D8CF3A1F75D41185F83AAC5116E11C59AA85C00</key>
+		<key>0E4DB37D1F4C7EF16704372A8A1B757D8FCB725C</key>
 		<string>https://github.com/swtlovewtt/EasyNews.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>AutolayoutDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>8D8CF3A1F75D41185F83AAC5116E11C59AA85C00</key>
+		<key>0E4DB37D1F4C7EF16704372A8A1B757D8FCB725C</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
@@ -25,14 +25,14 @@
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>8D8CF3A1F75D41185F83AAC5116E11C59AA85C00</string>
+	<string>0E4DB37D1F4C7EF16704372A8A1B757D8FCB725C</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>8D8CF3A1F75D41185F83AAC5116E11C59AA85C00</string>
+			<string>0E4DB37D1F4C7EF16704372A8A1B757D8FCB725C</string>
 			<key>IDESourceControlWCCName</key>
 			<string>EasyNews</string>
 		</dict>

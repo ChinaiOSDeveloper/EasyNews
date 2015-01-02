@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E42582281A56BB3200CBD60D /* NewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E42582271A56BB3200CBD60D /* NewsTableView.m */; };
+		E425822B1A56BD7F00CBD60D /* NewsSegmentControl.m in Sources */ = {isa = PBXBuildFile; fileRef = E425822A1A56BD7F00CBD60D /* NewsSegmentControl.m */; };
+		E425822E1A56C59F00CBD60D /* NewsTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E425822D1A56C59F00CBD60D /* NewsTitleCell.m */; };
 		E42AB95D1A5680240004E1E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB95C1A5680240004E1E8 /* main.m */; };
 		E42AB9601A5680240004E1E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB95F1A5680240004E1E8 /* AppDelegate.m */; };
 		E42AB9631A5680240004E1E8 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB9621A5680240004E1E8 /* FirstViewController.m */; };
@@ -48,6 +51,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E42582261A56BB3200CBD60D /* NewsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableView.h; sourceTree = "<group>"; };
+		E42582271A56BB3200CBD60D /* NewsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableView.m; sourceTree = "<group>"; };
+		E42582291A56BD7F00CBD60D /* NewsSegmentControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsSegmentControl.h; sourceTree = "<group>"; };
+		E425822A1A56BD7F00CBD60D /* NewsSegmentControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsSegmentControl.m; sourceTree = "<group>"; };
+		E425822C1A56C59F00CBD60D /* NewsTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTitleCell.h; sourceTree = "<group>"; };
+		E425822D1A56C59F00CBD60D /* NewsTitleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTitleCell.m; sourceTree = "<group>"; };
 		E42AB9571A5680240004E1E8 /* AutolayoutDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AutolayoutDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E42AB95B1A5680240004E1E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E42AB95C1A5680240004E1E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -280,6 +289,12 @@
 			children = (
 				E42AB9C51A5695760004E1E8 /* NewsCenter.h */,
 				E42AB9C61A5695760004E1E8 /* NewsCenter.m */,
+				E42582261A56BB3200CBD60D /* NewsTableView.h */,
+				E42582271A56BB3200CBD60D /* NewsTableView.m */,
+				E42582291A56BD7F00CBD60D /* NewsSegmentControl.h */,
+				E425822A1A56BD7F00CBD60D /* NewsSegmentControl.m */,
+				E425822C1A56C59F00CBD60D /* NewsTitleCell.h */,
+				E425822D1A56C59F00CBD60D /* NewsTitleCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -388,6 +403,7 @@
 				E42AB9BC1A5684D50004E1E8 /* WTNetworkActivityIndicatorManager.m in Sources */,
 				E42AB9BE1A5684D50004E1E8 /* WTURLRequestOperation.m in Sources */,
 				E42AB9B71A5684D50004E1E8 /* UIImageView+WTRequestCenter.m in Sources */,
+				E425822E1A56C59F00CBD60D /* NewsTitleCell.m in Sources */,
 				E42AB9B91A5684D50004E1E8 /* UIWebView+WTRequestCenter.m in Sources */,
 				E42AB9661A5680240004E1E8 /* SecondViewController.m in Sources */,
 				E42AB9881A5682F80004E1E8 /* NewsTableViewCell.m in Sources */,
@@ -403,9 +419,11 @@
 				E42AB9BB1A5684D50004E1E8 /* WTImageViewer.m in Sources */,
 				E42AB9B41A5684D50004E1E8 /* UIColor+WTRequestCenter.m in Sources */,
 				E42AB9C71A5695760004E1E8 /* NewsCenter.m in Sources */,
+				E42582281A56BB3200CBD60D /* NewsTableView.m in Sources */,
 				E42AB9B21A5684D50004E1E8 /* UIApplication+WTRequestCenter.m in Sources */,
 				E42AB9B61A5684D50004E1E8 /* UIImage+WTRequestCenter.m in Sources */,
 				E42AB9B11A5684D50004E1E8 /* UIAlertView+WTRequestCenter.m in Sources */,
+				E425822B1A56BD7F00CBD60D /* NewsSegmentControl.m in Sources */,
 				E42AB9B31A5684D50004E1E8 /* UIButton+WTRequestCenter.m in Sources */,
 				E42AB9BF1A5684D50004E1E8 /* WTURLRequestSerialization.m in Sources */,
 			);

@@ -1,5 +1,5 @@
 //
-//  FirstViewController.h
+//  NewsTableView.h
 //  AutolayoutDemo
 //
 //  Created by song on 15/1/2.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
-
-
+@interface NewsTableView : UITableView
+@property (nonatomic,strong) NSDictionary *newsDict;
 @end
-
