@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D100C71E-FD36-46F6-9020-979894B9314D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>AutolayoutDemo</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>8D8CF3A1F75D41185F83AAC5116E11C59AA85C00</key>
+		<string>https://github.com/swtlovewtt/EasyNews.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>AutolayoutDemo.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>8D8CF3A1F75D41185F83AAC5116E11C59AA85C00</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/swtlovewtt/EasyNews.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>8D8CF3A1F75D41185F83AAC5116E11C59AA85C00</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8D8CF3A1F75D41185F83AAC5116E11C59AA85C00</string>
+			<key>IDESourceControlWCCName</key>
+			<string>EasyNews</string>
+		</dict>
+	</array>
+</dict>
+</plist>
