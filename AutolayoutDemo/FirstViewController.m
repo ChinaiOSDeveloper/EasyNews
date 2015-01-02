@@ -72,6 +72,7 @@
     UICollectionViewFlowLayout *layout = nil;
     layout = (UICollectionViewFlowLayout*)_titleCollectionView.collectionViewLayout;
     layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.itemSize = CGSizeMake(10, 10);
     NSLog(@"%@",layout);
     
     _titleCollectionView.backgroundColor = [UIColor redColor];
@@ -130,16 +131,18 @@
     return count;
 }
 
-// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView
+                  cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsCell"
-                                  forIndexPath:indexPath];
+                                                                           forIndexPath:indexPath];
     NewsTitleCell *temp = (NewsTitleCell*)cell;
     temp.newsTitle.text = @"sadasda";
     return cell;
-    
 }
+
 #pragma mark - UICollectionViewDelegate
 
 
