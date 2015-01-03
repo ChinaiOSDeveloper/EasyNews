@@ -78,6 +78,7 @@
 
                                
                                NSArray *newsList = [[dict allValues] lastObject];
+                               [_dataList removeAllObjects];
                                [self.dataList addObjectsFromArray:newsList];
                                
                                [_myTableView reloadData];
@@ -117,7 +118,6 @@ static NSInteger pageSize = 20;
                            
                            
                            NSArray *newsList = [[dict allValues] lastObject];
-                           [_dataList removeAllObjects];
                            [self.dataList addObjectsFromArray:newsList];
                            [_myTableView reloadData];
                            
