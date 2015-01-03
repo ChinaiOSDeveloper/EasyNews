@@ -13,7 +13,7 @@
 #import "NewsTitleCell.h"
 #import "NewsTableView.h"
 #import "UIKit+WTRequestCenter.h"
-@interface FirstViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NewsTableViewDelegate>
+@interface FirstViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NewsTableViewDelegate,UIScrollViewDelegate>
 {
 
 }
@@ -245,4 +245,39 @@
 }
 
 
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    
+    if (scrollView == _newsCollectionView) {
+        CGPoint contentOffset = scrollView.contentOffset;
+        CGFloat width = CGRectGetWidth(self.view.bounds);
+        NSInteger page = contentOffset.x/width;
+        
+        NSIndexPath *indexPath = [NSIndexPath indexPathForItem:page
+                                                     inSection:0];
+
+        /*
+        [_titleCollectionView scrollToItemAtIndexPath:indexPath
+                                     atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
+                                             animated:YES];
+         */
+        
+        
+        [_titleCollectionView selectItemAtIndexPath:indexPath
+                                           animated:YES
+                                     scrollPosition:UICollectionViewScrollPositionCenteredHorizontally];
+        
+        
+        
+        
+    }
+
+    
+    
+    
+    
+    
+    
+}
 @end
