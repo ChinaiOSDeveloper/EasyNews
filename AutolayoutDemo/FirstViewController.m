@@ -12,6 +12,7 @@
 #import "NewsDetailViewController.h"
 #import "NewsTitleCell.h"
 #import "NewsTableView.h"
+#import "UIKit+WTRequestCenter.h"
 @interface FirstViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NewsTableViewDelegate>
 {
 
@@ -63,11 +64,22 @@
 #pragma mark - View
 -(void)configView
 {
-    self.title = @"网易";
+//    self.title = @"网易";
     
     
+    UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+    titleLabel.text = @"网易";
+    titleLabel.font = [UIFont systemFontOfSize:25];
+    titleLabel.textColor = [UIColor whiteColor];
+    titleLabel.textAlignment = NSTextAlignmentCenter;
+    self.navigationItem.titleView = titleLabel;
     
-
+    self.navigationController.navigationBar.barTintColor = [UIColor WTcolorWithRed:220
+                                                                             green:50
+                                                                              blue:55
+                                                                             alpha:1.0];
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
     
     
