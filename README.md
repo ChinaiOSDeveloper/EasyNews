@@ -9,3 +9,4 @@ EasyNews
 - 使用storyboard（简称sb）来调整自动布局。
 - 头文件能不import就不要import文件。
 - 命名要规范，全局变量前面加上下划线。
+- 尽量不要pull太多输出，pull之前给注释掉。
