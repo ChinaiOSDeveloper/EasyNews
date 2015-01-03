@@ -78,7 +78,6 @@
     layout.itemSize = CGSizeMake(50, 38);
     layout.minimumLineSpacing = 10;
     layout.minimumInteritemSpacing = 10;
-//    NSLog(@"%@",layout);
     
     _titleCollectionView.dataSource = self;
     _titleCollectionView.delegate = self;
