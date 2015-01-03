@@ -192,6 +192,7 @@
         [_newsCollectionView scrollToItemAtIndexPath:indexPath
                                     atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
                                             animated:YES];
+        [_newsCollectionView reloadItemsAtIndexPaths:@[indexPath]];
         
         
     }

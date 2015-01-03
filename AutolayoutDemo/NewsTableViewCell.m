@@ -8,6 +8,7 @@
 
 #import "NewsTableViewCell.h"
 #import "UIKit+WTRequestCenter.h"
+#import "WTNetWork.h"
 @interface NewsTableViewCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *newsImage;
@@ -21,6 +22,15 @@
 - (void)awakeFromNib {
     // Initialization code
     [super awakeFromNib];
+}
+
+
+-(void)prepareForReuse
+{
+    [super prepareForReuse];
+    _newsImage.image = nil;
+    WTURLRequestOperation *operation = _newsImage.wtImageRequestOperation;
+    [operation cancel];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
