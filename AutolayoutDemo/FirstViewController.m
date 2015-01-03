@@ -119,6 +119,9 @@
                                
                                [self.titleCollectionView reloadData];
                                [self.newsCollectionView reloadData];
+                               
+                               
+                               [self.titleCollectionView selectItemAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:0] animated:YES scrollPosition:UICollectionViewScrollPositionNone];
                            } failed:^(NSURLResponse *response, NSError *error) {
                                
                            }];

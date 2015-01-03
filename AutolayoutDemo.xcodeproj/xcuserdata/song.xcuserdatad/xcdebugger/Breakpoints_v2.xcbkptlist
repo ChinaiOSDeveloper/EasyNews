@@ -30,11 +30,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AutolayoutDemo/FirstViewController.m"
-            timestampString = "441947287.447801"
+            timestampString = "441984883.993004"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "247"
-            endingLineNumber = "247">
+            startingLineNumber = "250"
+            endingLineNumber = "250">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

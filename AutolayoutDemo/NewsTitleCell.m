@@ -27,7 +27,7 @@
     
     
     [UIView animateWithDuration:0.45
-                          delay:9
+                          delay:0
                         options:UIViewAnimationOptionBeginFromCurrentState
                      animations:^{
                          _newsTitle.textColor = textColor;
