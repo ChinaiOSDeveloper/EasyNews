@@ -10,3 +10,4 @@ EasyNews
 - 头文件能不import就不要import文件。
 - 命名要规范，全局变量前面加上下划线。
 - push之前尽量去掉或者注释掉输出，多注意，方便debug。
+- 协议用"#pragma mark - protocol"来标记
