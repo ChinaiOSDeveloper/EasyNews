@@ -163,7 +163,7 @@
                 dequeueReusableCellWithReuseIdentifier:@"newsCell"
                 forIndexPath:indexPath];
         NewsTitleCell *temp = (NewsTitleCell*)cell;
-        temp.backgroundColor = [UIColor greenColor];
+//        temp.backgroundColor = [UIColor greenColor];
         
         NSDictionary *dict = _newsTitles[indexPath.row];
         
