@@ -55,6 +55,14 @@
 
 }
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    
+    
+}
+
 
 #pragma mark - Model
 -(void)configModel
