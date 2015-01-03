@@ -190,7 +190,7 @@
     if (collectionView == _titleCollectionView) {
 
         [_newsCollectionView scrollToItemAtIndexPath:indexPath
-                                    atScrollPosition:UICollectionViewScrollPositionTop
+                                    atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
                                             animated:YES];
         
         
