@@ -177,6 +177,7 @@
         NewsTableView *temp = (NewsTableView*)cell;
         temp.backgroundColor = [UIColor grayColor];
         temp.newsDict = _newsTitles[indexPath.row];
+        [temp reloadData];
     }
 
     return cell;

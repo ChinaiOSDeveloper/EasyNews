@@ -46,6 +46,14 @@
     return self;
 }
 
+
+-(void)prepareForReuse
+{
+    [super prepareForReuse];
+    [_dataList removeAllObjects];
+    self.newsDict = nil;
+    [myTableView reloadData];
+}
 -(void)reloadData
 {
 //    if ([_dataList count]==0) {
@@ -86,7 +94,7 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
-    [self reloadData];
+//    [self reloadData];
     myTableView.frame = self.bounds;
 
 

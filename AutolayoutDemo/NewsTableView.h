@@ -10,4 +10,5 @@
 
 @interface NewsTableView : UICollectionViewCell
 @property (nonatomic,strong) NSDictionary *newsDict;
+-(void)reloadData;
 @end
