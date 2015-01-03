@@ -248,7 +248,7 @@ static inline NSString * WTKeyPathFromOperationState(WTOperationState state) {
         if (wtURLConnection) {
             [wtURLConnection cancel];
             [self performSelector:@selector(connection:didFailWithError:) withObject:wtURLConnection withObject:error];
-
+            
         }else
         {
             self.error = error;
