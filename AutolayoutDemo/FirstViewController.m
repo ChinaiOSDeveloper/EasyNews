@@ -206,9 +206,16 @@
 {
     if (collectionView == _titleCollectionView) {
 
+        [_titleCollectionView scrollToItemAtIndexPath:indexPath
+                                     atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
+                                             animated:YES];
+        
+        
         [_newsCollectionView scrollToItemAtIndexPath:indexPath
                                     atScrollPosition:UICollectionViewScrollPositionCenteredHorizontally
                                             animated:YES];
+        
+        
         [_newsCollectionView reloadItemsAtIndexPaths:@[indexPath]];
         
         
