@@ -248,7 +248,10 @@ static inline NSString * WTKeyPathFromOperationState(WTOperationState state) {
         if (wtURLConnection) {
             [wtURLConnection cancel];
             [self performSelector:@selector(connection:didFailWithError:) withObject:wtURLConnection withObject:error];
-
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                NSDictionary *userInfo = @{@"request": _request};
+                [[NSNotificationCenter defaultCenter] postNotificationName:WTNetworkingOperationDidFinishNotification object:_request userInfo:userInfo];
+            }];
         }else
         {
             self.error = error;
@@ -289,18 +292,15 @@ static inline NSString * WTKeyPathFromOperationState(WTOperationState state) {
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
-    [self.lock lock];
-    
-    self.state = WTOperationStateFinished;
-    
-    [self.lock unlock];
+    wtURLConnection = nil;
+    [self finish];
 }
 
 #pragma mark - NSURLConnectionDelegate
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error
 {
     self.error = error;
-
+    wtURLConnection = nil;
     [self finish];
 }
 
