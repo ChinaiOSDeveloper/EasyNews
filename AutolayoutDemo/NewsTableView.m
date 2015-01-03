@@ -13,7 +13,7 @@
 {
     UITableView *myTableView;
 }
-@property (nonatomic, strong) NSArray *dataList;
+@property (nonatomic, strong) NSMutableArray *dataList;
 @end
 @implementation NewsTableView
 
@@ -22,6 +22,7 @@
 {
     self = [super init];
     if (self) {
+        self.dataList = [NSMutableArray new];
         
         myTableView = [[UITableView alloc] initWithFrame:self.bounds];
         [self addSubview:myTableView];
@@ -40,8 +41,11 @@
 -(void)reloadData
 {
     if ([_dataList count]==0) {
-        NSString *cid = [_newsDict valueForKey:@"cid"];
-        NSString *url = [self urlWithCid:cid];
+        
+        NSArray *tList = [_newsDict valueForKey:@"tList"];
+        NSDictionary *dict = [tList firstObject];
+        NSString *tid = [dict valueForKey:@"tid"];
+        NSString *url = [self urlWithCid:tid];
         [WTRequestCenter getWithURL:url
                          parameters:nil
                              option:WTRequestCenterCachePolicyCacheAndWeb
@@ -58,9 +62,12 @@
 }
 
 
--(NSString*)urlWithCid:(NSString*)cid
+-(NSString*)urlWithCid:(NSString*)tid
 {
-    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",cid];
+//http://c.m.163.com/nc/article/list/T1348648756099/0-20.html
+    NSString *p1 = @"http://c.m.163.com/nc/article/list";
+    NSString *p3 = @"0-20.html";
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@",p1,tid,p3];
     return url;
 }
 
@@ -68,7 +75,7 @@
 {
     [super layoutSubviews];
     [self reloadData];
-//    NSLog(@"%@",_newsDict);
+
 
 }
 
