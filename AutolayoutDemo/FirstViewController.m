@@ -93,6 +93,7 @@
     
     _titleCollectionView.dataSource = self;
     _titleCollectionView.delegate = self;
+    _titleCollectionView.showsHorizontalScrollIndicator = NO;
     self.titleCollectionView.collectionViewLayout = layout;
 
     
