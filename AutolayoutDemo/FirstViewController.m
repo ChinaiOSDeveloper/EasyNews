@@ -83,6 +83,14 @@
     _titleCollectionView.dataSource = self;
     _titleCollectionView.delegate = self;
     self.titleCollectionView.collectionViewLayout = layout;
+    
+    
+    _newsCollectionView.pagingEnabled = YES;
+    layout = (UICollectionViewFlowLayout*)_newsCollectionView.collectionViewLayout;
+    layout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
+    layout.minimumLineSpacing = 0;
+    layout.minimumInteritemSpacing = 0;
+    
 }
 
 #pragma mark - 数据

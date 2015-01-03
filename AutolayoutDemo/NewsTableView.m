@@ -17,22 +17,30 @@
 @end
 @implementation NewsTableView
 
-
-- (instancetype)init
+- (instancetype)initWithCoder:(NSCoder *)coder
 {
-    self = [super init];
+    self = [super initWithCoder:coder];
     if (self) {
         self.dataList = [NSMutableArray new];
         
         myTableView = [[UITableView alloc] initWithFrame:self.bounds];
         [self addSubview:myTableView];
-        
+        myTableView.dataSource = self;
         
         UINib *nib = [UINib nibWithNibName:@"NewsTableViewCell"
                                     bundle:nil];
         
         [myTableView registerNib:nib
-             forCellReuseIdentifier:@"NewsTableViewCell"];
+          forCellReuseIdentifier:@"NewsTableViewCell"];
+        
+
+    }
+    return self;
+}
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
         
     }
     return self;
@@ -40,8 +48,8 @@
 
 -(void)reloadData
 {
-    if ([_dataList count]==0) {
-        
+//    if ([_dataList count]==0) {
+    
         NSArray *tList = [_newsDict valueForKey:@"tList"];
         NSDictionary *dict = [tList firstObject];
         NSString *tid = [dict valueForKey:@"tid"];
@@ -54,10 +62,14 @@
                                NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
                                NSLog(@"%@",dict);
                                
+                               NSArray *newsList = [[dict allValues] lastObject];
+                               [self.dataList addObjectsFromArray:newsList];
+                               
+                               [myTableView reloadData];
                            } failed:^(NSURLResponse *response, NSError *error) {
                                
                            }];
-    }
+//    }
 
 }
 
@@ -75,6 +87,7 @@
 {
     [super layoutSubviews];
     [self reloadData];
+    myTableView.frame = self.bounds;
 
 
 }
@@ -104,7 +117,7 @@
     
     NewsTableViewCell *temp = (NewsTableViewCell*)cell;
     temp.newsData = _dataList[indexPath.row];
-    
+//    temp.textLabel.text = @"asdasdasd";
     return cell;
 }
 
