@@ -32,7 +32,7 @@
         _myTableView.delegate = self;
         
         
-        _loadingMore = YES;
+        _loadingMore = NO;
         
         UINib *nib = [UINib nibWithNibName:@"NewsTableViewCell"
                                     bundle:nil];
@@ -68,7 +68,7 @@
         NSArray *tList = [_newsDict valueForKey:@"tList"];
         NSDictionary *dict = [tList firstObject];
         NSString *tid = [dict valueForKey:@"tid"];
-        NSString *url = [self urlWithCid:tid];
+        NSString *url = [self urlWithTid:tid];
         [WTRequestCenter getWithURL:url
                          parameters:nil
                              option:WTRequestCenterCachePolicyCacheAndWeb
@@ -88,6 +88,9 @@
 
 }
 
+//分页的大小
+static NSInteger pageSize = 20;
+
 -(void)loadMore
 {
     //如果在加载中，就取消加载更多
@@ -97,11 +100,26 @@
 //    加载中
     _loadingMore = YES;
     
-    NSString *url = @"";
+    
+    NSArray *tList = [_newsDict valueForKey:@"tList"];
+    NSDictionary *dict = [tList firstObject];
+    NSString *tid = [dict valueForKey:@"tid"];
+    
+    NSString *url = [self urlWithTid:tid range:NSMakeRange([_dataList count], pageSize)];
+    
+    
     [WTRequestCenter getWithURL:url
                      parameters:nil
                        finished:^(NSURLResponse *response, NSData *data) {
                            _loadingMore = NO;
+                           
+                           NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
+                           
+                           
+                           NSArray *newsList = [[dict allValues] lastObject];
+                           [self.dataList addObjectsFromArray:newsList];
+                           [_myTableView reloadData];
+                           
                        } failed:^(NSURLResponse *response, NSError *error) {
                            _loadingMore = NO;
                        }];
@@ -109,11 +127,19 @@
 }
 
 
--(NSString*)urlWithCid:(NSString*)tid
+-(NSString*)urlWithTid:(NSString*)tid
 {
 //http://c.m.163.com/nc/article/list/T1348648756099/0-20.html
     NSString *p1 = @"http://c.m.163.com/nc/article/list";
     NSString *p3 = @"0-20.html";
+    NSString *url = [NSString stringWithFormat:@"%@/%@/%@",p1,tid,p3];
+    return url;
+}
+
+-(NSString*)urlWithTid:(NSString*)tid range:(NSRange)range
+{
+    NSString *p1 = @"http://c.m.163.com/nc/article/list";
+    NSString *p3 = [NSString stringWithFormat:@"%lu-%lu.html",(unsigned long)range.location,range.location+range.length];
     NSString *url = [NSString stringWithFormat:@"%@/%@/%@",p1,tid,p3];
     return url;
 }
