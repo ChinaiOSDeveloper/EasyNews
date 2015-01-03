@@ -7,8 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+@class NewsTableView;
+@protocol NewsTableViewDelegate <NSObject>
 
+-(void)newsTableView:(NewsTableView*)tableView selectArticleWithInfo:(NSDictionary*)info;
+
+@end
 @interface NewsTableView : UICollectionViewCell
+@property (nonatomic,weak) id <NewsTableViewDelegate> delegate;
+
 @property (nonatomic,strong) NSDictionary *newsDict;
 -(void)reloadData;
 @end

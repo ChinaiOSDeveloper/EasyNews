@@ -12,7 +12,7 @@
 #import "NewsDetailViewController.h"
 #import "NewsTitleCell.h"
 #import "NewsTableView.h"
-@interface FirstViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface FirstViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NewsTableViewDelegate>
 {
 
 }
@@ -175,6 +175,7 @@
         cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"newsTableCell"
                                                          forIndexPath:indexPath];
         NewsTableView *temp = (NewsTableView*)cell;
+        temp.delegate = self;
         temp.backgroundColor = [UIColor grayColor];
         temp.newsDict = _newsTitles[indexPath.row];
         [temp reloadData];
@@ -204,6 +205,15 @@
         return _newsCollectionView.bounds.size;
     }
 
+}
+
+#pragma mark - NewsTableViewDelegate
+-(void)newsTableView:(NewsTableView*)tableView selectArticleWithInfo:(NSDictionary*)info
+{
+    NewsDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"NewsDetailVC"];
+    vc.articleInfo = info;
+    [self.navigationController pushViewController:vc
+                                         animated:YES];
 }
 
 

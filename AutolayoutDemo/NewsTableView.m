@@ -26,6 +26,7 @@
         myTableView = [[UITableView alloc] initWithFrame:self.bounds];
         [self addSubview:myTableView];
         myTableView.dataSource = self;
+        myTableView.delegate = self;
         
         UINib *nib = [UINib nibWithNibName:@"NewsTableViewCell"
                                     bundle:nil];
@@ -136,6 +137,14 @@
 {
 //    [self performSegueWithIdentifier:@"pushToDetail"
 //                              sender:_dataList[indexPath.row]];
+    
+    NSDictionary *dict = _dataList[indexPath.row];
+    [self.delegate newsTableView:self
+           selectArticleWithInfo:dict];
+//    NSLog(@"%@",dict);
+    
+//    [self.delegate newsTableView:self
+//            selectArticleWithtid:<#(NSString *)#>]
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

@@ -107,7 +107,7 @@
         <!--News Detail View Controller-->
         <scene sceneID="8AX-fd-wyS">
             <objects>
-                <viewController id="ftq-OL-dFH" customClass="NewsDetailViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="NewsDetailVC" id="ftq-OL-dFH" customClass="NewsDetailViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Pv-LJ-tXu"/>
                         <viewControllerLayoutGuide type="bottom" id="tBi-Mf-7Iu"/>
