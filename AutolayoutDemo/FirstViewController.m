@@ -82,7 +82,7 @@
     _titleCollectionView.dataSource = self;
     _titleCollectionView.delegate = self;
     self.titleCollectionView.collectionViewLayout = layout;
-    
+
     
     _newsCollectionView.pagingEnabled = YES;
     layout = (UICollectionViewFlowLayout*)_newsCollectionView.collectionViewLayout;
@@ -165,7 +165,7 @@
                 dequeueReusableCellWithReuseIdentifier:@"newsCell"
                 forIndexPath:indexPath];
         NewsTitleCell *temp = (NewsTitleCell*)cell;
-//        temp.backgroundColor = [UIColor greenColor];
+        temp.backgroundColor = [UIColor clearColor];
         
         NSDictionary *dict = _newsTitles[indexPath.row];
         
