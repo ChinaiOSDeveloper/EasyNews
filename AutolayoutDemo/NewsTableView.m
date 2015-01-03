@@ -23,6 +23,10 @@
     self = [super init];
     if (self) {
         
+        myTableView = [[UITableView alloc] initWithFrame:self.bounds];
+        [self addSubview:myTableView];
+        
+        
         UINib *nib = [UINib nibWithNibName:@"NewsTableViewCell"
                                     bundle:nil];
         
@@ -35,6 +39,36 @@
 
 -(void)reloadData
 {
+    if ([_dataList count]==0) {
+        NSString *cid = [_newsDict valueForKey:@"cid"];
+        NSString *url = [self urlWithCid:cid];
+        [WTRequestCenter getWithURL:url
+                         parameters:nil
+                             option:WTRequestCenterCachePolicyCacheAndWeb
+                           finished:^(NSURLResponse *response, NSData *data) {
+                               
+                               NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
+                               NSLog(@"%@",dict);
+                               
+                           } failed:^(NSURLResponse *response, NSError *error) {
+                               
+                           }];
+    }
+
+}
+
+
+-(NSString*)urlWithCid:(NSString*)cid
+{
+    NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",cid];
+    return url;
+}
+
+-(void)layoutSubviews
+{
+    [super layoutSubviews];
+    [self reloadData];
+//    NSLog(@"%@",_newsDict);
 
 }
 
