@@ -67,6 +67,8 @@
 //    self.title = @"网易";
     
     
+    
+    
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
     titleLabel.text = @"网易";
     titleLabel.font = [UIFont systemFontOfSize:25];
