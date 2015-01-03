@@ -11,7 +11,10 @@
 #import "WTNetWork.h"
 @interface NewsTableView () <UITableViewDataSource,UITableViewDelegate>
 {
-    UITableView *myTableView;
+    UITableView *_myTableView;
+    
+    BOOL _loadingMore;
+    
 }
 @property (nonatomic, strong) NSMutableArray *dataList;
 @end
@@ -23,15 +26,18 @@
     if (self) {
         self.dataList = [NSMutableArray new];
         
-        myTableView = [[UITableView alloc] initWithFrame:self.bounds];
-        [self addSubview:myTableView];
-        myTableView.dataSource = self;
-        myTableView.delegate = self;
+        _myTableView = [[UITableView alloc] initWithFrame:self.bounds];
+        [self addSubview:_myTableView];
+        _myTableView.dataSource = self;
+        _myTableView.delegate = self;
+        
+        
+        _loadingMore = YES;
         
         UINib *nib = [UINib nibWithNibName:@"NewsTableViewCell"
                                     bundle:nil];
         
-        [myTableView registerNib:nib
+        [_myTableView registerNib:nib
           forCellReuseIdentifier:@"NewsTableViewCell"];
         
 
@@ -53,7 +59,7 @@
     [super prepareForReuse];
     [_dataList removeAllObjects];
     self.newsDict = nil;
-    [myTableView reloadData];
+    [_myTableView reloadData];
 }
 -(void)reloadData
 {
@@ -74,12 +80,32 @@
                                NSArray *newsList = [[dict allValues] lastObject];
                                [self.dataList addObjectsFromArray:newsList];
                                
-                               [myTableView reloadData];
+                               [_myTableView reloadData];
                            } failed:^(NSURLResponse *response, NSError *error) {
                                
                            }];
 //    }
 
+}
+
+-(void)loadMore
+{
+    //如果在加载中，就取消加载更多
+    if (_loadingMore) {
+        return;
+    }
+//    加载中
+    _loadingMore = YES;
+    
+    NSString *url = @"";
+    [WTRequestCenter getWithURL:url
+                     parameters:nil
+                       finished:^(NSURLResponse *response, NSData *data) {
+                           _loadingMore = NO;
+                       } failed:^(NSURLResponse *response, NSError *error) {
+                           _loadingMore = NO;
+                       }];
+    
 }
 
 
@@ -92,11 +118,14 @@
     return url;
 }
 
+
+
+
 -(void)layoutSubviews
 {
     [super layoutSubviews];
 //    [self reloadData];
-    myTableView.frame = self.bounds;
+    _myTableView.frame = self.bounds;
 
 
 }
@@ -151,6 +180,16 @@
     return 90;
 }
 
+
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if ([_dataList count]<140) {
+        if (_dataList.count - indexPath.row <10) {
+            [self loadMore];
+        }
+    }
+}
 
 /*
 // Only override drawRect: if you perform custom drawing.
