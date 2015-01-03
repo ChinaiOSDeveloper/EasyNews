@@ -210,6 +210,7 @@
 				E42582261A56BB3200CBD60D /* NewsTableView.h */,
 				E42582271A56BB3200CBD60D /* NewsTableView.m */,
 				E425822C1A56C59F00CBD60D /* NewsTitleCell.h */,
+				E425822D1A56C59F00CBD60D /* NewsTitleCell.m */,
 				E42AB9851A5682F80004E1E8 /* NewsTableViewCell.h */,
 				E42AB9861A5682F80004E1E8 /* NewsTableViewCell.m */,
 				E42AB9871A5682F80004E1E8 /* NewsTableViewCell.xib */,
@@ -289,7 +290,6 @@
 			children = (
 				E42AB9C51A5695760004E1E8 /* NewsCenter.h */,
 				E42AB9C61A5695760004E1E8 /* NewsCenter.m */,
-				E425822D1A56C59F00CBD60D /* NewsTitleCell.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
