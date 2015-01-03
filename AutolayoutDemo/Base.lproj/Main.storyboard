@@ -58,7 +58,7 @@
                                 </cells>
                             </collectionView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vFa-Pm-PCx">
-                                <rect key="frame" x="0.0" y="101" width="600" height="499"/>
+                                <rect key="frame" x="0.0" y="101" width="600" height="450"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="P0l-dA-D6X">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -88,7 +88,7 @@
                             <constraint firstItem="vFa-Pm-PCx" firstAttribute="trailing" secondItem="YRT-la-eOu" secondAttribute="trailing" id="HWy-rk-gnf"/>
                             <constraint firstItem="vFa-Pm-PCx" firstAttribute="top" secondItem="8X1-fh-Xwd" secondAttribute="bottom" constant="37" id="NzD-gp-pHz"/>
                             <constraint firstItem="vFa-Pm-PCx" firstAttribute="leading" secondItem="YRT-la-eOu" secondAttribute="leading" id="gS1-bU-elZ"/>
-                            <constraint firstItem="nbs-Yt-es3" firstAttribute="top" secondItem="vFa-Pm-PCx" secondAttribute="bottom" constant="-49" id="kHT-r7-eaG"/>
+                            <constraint firstItem="nbs-Yt-es3" firstAttribute="top" secondItem="vFa-Pm-PCx" secondAttribute="bottom" id="kHT-r7-eaG"/>
                             <constraint firstAttribute="trailing" secondItem="YRT-la-eOu" secondAttribute="trailing" id="u9p-85-yCr"/>
                             <constraint firstItem="YRT-la-eOu" firstAttribute="top" secondItem="8X1-fh-Xwd" secondAttribute="bottom" constant="-64" id="w2s-WE-L09"/>
                         </constraints>
