@@ -69,7 +69,7 @@
                            finished:^(NSURLResponse *response, NSData *data) {
                                
                                NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
-                               NSLog(@"%@",dict);
+
                                
                                NSArray *newsList = [[dict allValues] lastObject];
                                [self.dataList addObjectsFromArray:newsList];

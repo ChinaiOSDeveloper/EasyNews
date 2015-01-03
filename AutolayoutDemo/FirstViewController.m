@@ -185,7 +185,17 @@
 }
 
 #pragma mark - UICollectionViewDelegate
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (collectionView == _titleCollectionView) {
 
+        [_newsCollectionView scrollToItemAtIndexPath:indexPath
+                                    atScrollPosition:UICollectionViewScrollPositionTop
+                                            animated:YES];
+        
+        
+    }
+}
 
 #pragma mark - UICollectionViewDelegateFlowLayout
 
