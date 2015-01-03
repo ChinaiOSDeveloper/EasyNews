@@ -13,26 +13,26 @@
 #import <UIKit/UIKit.h>
 #endif
 /*
-static dispatch_queue_t http_request_operation_processing_queue() {
-    static dispatch_queue_t af_http_request_operation_processing_queue;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        af_http_request_operation_processing_queue = dispatch_queue_create("WTRequestCenter.processing", DISPATCH_QUEUE_CONCURRENT);
-    });
-    
-    return af_http_request_operation_processing_queue;
-}
-
-static dispatch_group_t http_request_operation_completion_group() {
-    static dispatch_group_t af_http_request_operation_completion_group;
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        af_http_request_operation_completion_group = dispatch_group_create();
-    });
-    
-    return af_http_request_operation_completion_group;
-}
-*/
+ static dispatch_queue_t http_request_operation_processing_queue() {
+ static dispatch_queue_t af_http_request_operation_processing_queue;
+ static dispatch_once_t onceToken;
+ dispatch_once(&onceToken, ^{
+ af_http_request_operation_processing_queue = dispatch_queue_create("WTRequestCenter.processing", DISPATCH_QUEUE_CONCURRENT);
+ });
+ 
+ return af_http_request_operation_processing_queue;
+ }
+ 
+ static dispatch_group_t http_request_operation_completion_group() {
+ static dispatch_group_t af_http_request_operation_completion_group;
+ static dispatch_once_t onceToken;
+ dispatch_once(&onceToken, ^{
+ af_http_request_operation_completion_group = dispatch_group_create();
+ });
+ 
+ return af_http_request_operation_completion_group;
+ }
+ */
 #if !__has_feature(objc_arc)
 #error WTRequestCenter must be built with ARC.
 // You can turn on ARC for only WTRequestCenter files by adding -fobjc-arc to the build phase for each of its files.
@@ -98,7 +98,7 @@ static inline NSString * WTKeyPathFromOperationState(WTOperationState state) {
         self.request = request;
         self.lock = [[NSRecursiveLock alloc] init];
         self.lock.name = @"WTRequestCenter.WTURLRequestOperation.lock";
-
+        
         _state = WTOperationStateReady;
         
         
@@ -248,6 +248,10 @@ static inline NSString * WTKeyPathFromOperationState(WTOperationState state) {
         if (wtURLConnection) {
             [wtURLConnection cancel];
             [self performSelector:@selector(connection:didFailWithError:) withObject:wtURLConnection withObject:error];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                NSDictionary *userInfo = @{@"request": _request};
+                [[NSNotificationCenter defaultCenter] postNotificationName:WTNetworkingOperationDidFinishNotification object:_request userInfo:userInfo];
+            }];
         }else
         {
             self.error = error;
@@ -264,9 +268,9 @@ static inline NSString * WTKeyPathFromOperationState(WTOperationState state) {
         NSDictionary *userInfo = @{@"request": _request};
         [[NSNotificationCenter defaultCenter] postNotificationName:WTNetworkingOperationDidFinishNotification object:_request userInfo:userInfo];
     });
-
+    
     [self.lock unlock];
-
+    
 }
 #pragma mark - NSURLConnectionDataDelegate
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response
@@ -289,9 +293,9 @@ static inline NSString * WTKeyPathFromOperationState(WTOperationState state) {
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
     [self.lock lock];
-
+    
     self.state = WTOperationStateFinished;
-
+    
     [self.lock unlock];
 }
 
