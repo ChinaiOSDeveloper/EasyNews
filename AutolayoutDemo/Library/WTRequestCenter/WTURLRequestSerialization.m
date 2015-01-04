@@ -58,11 +58,10 @@ static NSString *const WTReuqestCenterUserAgent = @"WTURLRequestUserAgent";
 - (BOOL)appendPartWithData:(NSData*)data
                       name:(NSString*)name
 {
-//    assert(!data);
-//    assert(!name);
+    assert(!data);
+    assert(!name);
     
     NSDictionary *dict= @{name: data};
-
     [_HTTPBodyParts addObject:dict];
     return YES;
 }
@@ -170,18 +169,7 @@ static WTURLRequestSerialization *sharedSerialization = nil;
 
 -(NSString*)stringFromParameters:(NSDictionary*)parameters
 {
-    NSMutableString *paramString = [[NSMutableString alloc] init];
-    [parameters enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString* value, BOOL *stop) {
-        NSString *str = [NSString stringWithFormat:@"%@=%@",key,value];
-        [paramString appendString:str];
-        [paramString appendString:@"&"];
-        
-    }];
-    if([paramString hasSuffix:@"&"]){
-        paramString = [[paramString substringToIndex:[paramString length]-1] mutableCopy];
-    }
-    
-    return paramString;
+    return [[self class] stringFromParameters:parameters];
 }
 
 #pragma mark - 请求的生成
