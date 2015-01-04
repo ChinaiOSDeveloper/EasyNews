@@ -39,6 +39,10 @@
 		E42AB9C01A5684D50004E1E8 /* WTURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB9B01A5684D50004E1E8 /* WTURLSessionManager.m */; };
 		E42AB9C41A5693100004E1E8 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB9C31A5693100004E1E8 /* NewsDetailViewController.m */; };
 		E42AB9C71A5695760004E1E8 /* NewsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB9C61A5695760004E1E8 /* NewsCenter.m */; };
+		E4D3F11D1A597C2300B3A0A1 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F1191A597C2300B3A0A1 /* DS-DIGI.TTF */; };
+		E4D3F11E1A597C2300B3A0A1 /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11A1A597C2300B3A0A1 /* DS-DIGIB.TTF */; };
+		E4D3F11F1A597C2300B3A0A1 /* lijinheiW8.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11B1A597C2300B3A0A1 /* lijinheiW8.TTF */; };
+		E4D3F1201A597C2300B3A0A1 /* StencilStd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11C1A597C2300B3A0A1 /* StencilStd.ttf */; };
 		F7E0FB441A5912D700AB32C8 /* DBPictureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = F7E0FB431A5912D700AB32C8 /* DBPictureVC.m */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +122,10 @@
 		E42AB9C31A5693100004E1E8 /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		E42AB9C51A5695760004E1E8 /* NewsCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCenter.h; sourceTree = "<group>"; };
 		E42AB9C61A5695760004E1E8 /* NewsCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCenter.m; sourceTree = "<group>"; };
+		E4D3F1191A597C2300B3A0A1 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
+		E4D3F11A1A597C2300B3A0A1 /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIB.TTF"; sourceTree = "<group>"; };
+		E4D3F11B1A597C2300B3A0A1 /* lijinheiW8.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = lijinheiW8.TTF; sourceTree = "<group>"; };
+		E4D3F11C1A597C2300B3A0A1 /* StencilStd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = StencilStd.ttf; sourceTree = "<group>"; };
 		F7E0FB421A5912D700AB32C8 /* DBPictureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPictureVC.h; sourceTree = "<group>"; };
 		F7E0FB431A5912D700AB32C8 /* DBPictureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPictureVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -179,6 +187,7 @@
 		E42AB9591A5680240004E1E8 /* AutolayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E4D3F1171A597C0400B3A0A1 /* Resource */,
 				E42AB9C91A5695840004E1E8 /* Model */,
 				E42AB98B1A5684BD0004E1E8 /* Library */,
 				E42AB9831A5682CB0004E1E8 /* View and ViewControllers */,
@@ -325,6 +334,25 @@
 			name = Model;
 			sourceTree = "<group>";
 		};
+		E4D3F1171A597C0400B3A0A1 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				E4D3F1181A597C1000B3A0A1 /* Font */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		E4D3F1181A597C1000B3A0A1 /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				E4D3F1191A597C2300B3A0A1 /* DS-DIGI.TTF */,
+				E4D3F11A1A597C2300B3A0A1 /* DS-DIGIB.TTF */,
+				E4D3F11B1A597C2300B3A0A1 /* lijinheiW8.TTF */,
+				E4D3F11C1A597C2300B3A0A1 /* StencilStd.ttf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -407,9 +435,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42AB9691A5680240004E1E8 /* Main.storyboard in Resources */,
+				E4D3F11E1A597C2300B3A0A1 /* DS-DIGIB.TTF in Resources */,
 				E42AB96E1A5680240004E1E8 /* LaunchScreen.xib in Resources */,
 				E42AB9891A5682F80004E1E8 /* NewsTableViewCell.xib in Resources */,
 				E42AB96B1A5680240004E1E8 /* Images.xcassets in Resources */,
+				E4D3F11F1A597C2300B3A0A1 /* lijinheiW8.TTF in Resources */,
+				E4D3F11D1A597C2300B3A0A1 /* DS-DIGI.TTF in Resources */,
+				E4D3F1201A597C2300B3A0A1 /* StencilStd.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

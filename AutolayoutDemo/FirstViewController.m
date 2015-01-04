@@ -86,9 +86,9 @@
     
     
     if ([UIDevice systemVersion] >= 7.0) {
-        UIColor *barTintColor = [UIColor WTcolorWithRed:220
-                                                  green:50
-                                                   blue:55
+        UIColor *barTintColor = [UIColor WTcolorWithRed:207
+                                                  green:22
+                                                   blue:31
                                                   alpha:1.0];
         
         self.navigationController.navigationBar.barTintColor = barTintColor;
