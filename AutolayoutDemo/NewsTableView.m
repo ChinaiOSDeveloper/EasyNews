@@ -57,9 +57,7 @@
 -(void)prepareForReuse
 {
     [super prepareForReuse];
-    [_dataList removeAllObjects];
-    self.newsDict = nil;
-    [_myTableView reloadData];
+
 }
 -(void)reloadData
 {
