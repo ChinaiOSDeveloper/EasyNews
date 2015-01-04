@@ -8,8 +8,36 @@
 
 #import "NewsCenter.h"
 #import "WTNetWork.h"
+#import "UIKit+WTRequestCenter.h"
 @implementation NewsCenter
 //http://c.m.163.com/nc/topicset/ios/v4/subscribe/news/all.html
+
+static NSString *localColumnName = @"NewsCenter local column name";
+
++(void)saveLocalNewsColumn:(NSArray*)array
+{
+    assert(!array);
+    [WTDataSaver saveData:[NSJSONSerialization dataWithJSONObject:array options:0 error:nil] withName:localColumnName];
+}
+
++(void)localNewsColumnWithComplection:(void(^)(NSArray *array))completion
+{
+//    NSArray *result = nil;
+    [WTDataSaver dataWithName:localColumnName
+                   completion:^(NSData *data) {
+                       
+                       NSArray *array = [WTRequestCenter JSONObjectWithData:data];
+                       
+                       [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                           if (completion) {
+                               completion(array);
+                           }
+                       }];
+
+                   }];
+
+    
+}
 
 
 //获取新闻的分类

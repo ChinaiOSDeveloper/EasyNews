@@ -10,4 +10,12 @@
 
 @interface NewsCenter : NSObject
 
+
+//保存本地新闻栏目列表
++(void)saveLocalNewsColumn:(NSArray*)array;
+//获取本地新闻栏目列表
++(void)localNewsColumnWithComplection:(void(^)(NSArray *array))completion;
+
+
+
 @end
