@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		E1CAE6F91A593BE000784DFD /* GBVersionTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CAE6F81A593BE000784DFD /* GBVersionTracking.m */; };
+		E1CAE6FD1A59411F00784DFD /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CAE6FC1A59411F00784DFD /* UICKeyChainStore.m */; };
 		E42582281A56BB3200CBD60D /* NewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E42582271A56BB3200CBD60D /* NewsTableView.m */; };
 		E425822E1A56C59F00CBD60D /* NewsTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E425822D1A56C59F00CBD60D /* NewsTitleCell.m */; };
 		E42AB95D1A5680240004E1E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB95C1A5680240004E1E8 /* main.m */; };
@@ -54,6 +55,8 @@
 /* Begin PBXFileReference section */
 		E1CAE6F71A593BE000784DFD /* GBVersionTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBVersionTracking.h; sourceTree = "<group>"; };
 		E1CAE6F81A593BE000784DFD /* GBVersionTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBVersionTracking.m; sourceTree = "<group>"; };
+		E1CAE6FB1A59411F00784DFD /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
+		E1CAE6FC1A59411F00784DFD /* UICKeyChainStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICKeyChainStore.m; sourceTree = "<group>"; };
 		E42582261A56BB3200CBD60D /* NewsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableView.h; sourceTree = "<group>"; };
 		E42582271A56BB3200CBD60D /* NewsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsTableView.m; sourceTree = "<group>"; };
 		E425822C1A56C59F00CBD60D /* NewsTitleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTitleCell.h; sourceTree = "<group>"; };
@@ -144,6 +147,15 @@
 				E1CAE6F81A593BE000784DFD /* GBVersionTracking.m */,
 			);
 			path = GBVersionTracking;
+			sourceTree = "<group>";
+		};
+		E1CAE6FA1A59411F00784DFD /* UICKeyChainStore */ = {
+			isa = PBXGroup;
+			children = (
+				E1CAE6FB1A59411F00784DFD /* UICKeyChainStore.h */,
+				E1CAE6FC1A59411F00784DFD /* UICKeyChainStore.m */,
+			);
+			path = UICKeyChainStore;
 			sourceTree = "<group>";
 		};
 		E42AB94E1A5680240004E1E8 = {
@@ -238,6 +250,7 @@
 		E42AB98B1A5684BD0004E1E8 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				E1CAE6FA1A59411F00784DFD /* UICKeyChainStore */,
 				E42AB9A71A5684D50004E1E8 /* WTRequestCenter */,
 				E42AB98C1A5684D50004E1E8 /* UIKit+WTRequestCenter */,
 				E1CAE6F61A593BE000784DFD /* GBVersionTracking */,
@@ -433,6 +446,7 @@
 				E42AB9BD1A5684D50004E1E8 /* WTRequestCenter.m in Sources */,
 				E42AB9BB1A5684D50004E1E8 /* WTImageViewer.m in Sources */,
 				E42AB9B41A5684D50004E1E8 /* UIColor+WTRequestCenter.m in Sources */,
+				E1CAE6FD1A59411F00784DFD /* UICKeyChainStore.m in Sources */,
 				E42AB9C71A5695760004E1E8 /* NewsCenter.m in Sources */,
 				E42582281A56BB3200CBD60D /* NewsTableView.m in Sources */,
 				E1CAE6F91A593BE000784DFD /* GBVersionTracking.m in Sources */,
