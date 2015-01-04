@@ -83,6 +83,9 @@
                                    
                                }else
                                {
+                                   if ([_dataList isEqualToArray:newsList]) {
+                                       return;
+                                   }
                                    [_dataList removeAllObjects];
                                    [self.dataList addObjectsFromArray:newsList];
                                    
