@@ -84,10 +84,16 @@
     titleLabel.textAlignment = NSTextAlignmentCenter;
     self.navigationItem.titleView = titleLabel;
     
-    self.navigationController.navigationBar.barTintColor = [UIColor WTcolorWithRed:220
-                                                                             green:50
-                                                                              blue:55
-                                                                             alpha:1.0];
+    
+    if ([UIDevice systemVersion] >= 7.0) {
+        UIColor *barTintColor = [UIColor WTcolorWithRed:220
+                                                  green:50
+                                                   blue:55
+                                                  alpha:1.0];
+        
+        self.navigationController.navigationBar.barTintColor = barTintColor;
+    }
+
     
     
     self.view.backgroundColor = [UIColor whiteColor];
