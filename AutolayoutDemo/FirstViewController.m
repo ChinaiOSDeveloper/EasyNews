@@ -194,11 +194,9 @@
                 dequeueReusableCellWithReuseIdentifier:@"newsCell"
                 forIndexPath:indexPath];
         NewsTitleCell *temp = (NewsTitleCell*)cell;
-        temp.backgroundColor = [UIColor clearColor];
-        
+
         NSDictionary *dict = _newsTitles[indexPath.row];
-        
-        temp.newsTitle.text = [dict valueForKey:@"cName"];
+        temp.infoDict = dict;
     }
     
     
@@ -251,7 +249,13 @@
 //      24+20*2
     
     if (collectionView == _titleCollectionView) {
-            return CGSizeMake(64, 38);
+        NSDictionary *_infoDict = _newsTitles[indexPath.row];
+        NSArray *tList = [_infoDict valueForKey:@"tList"];
+        NSDictionary *dict = [tList firstObject];
+        NSString *tname = [dict valueForKey:@"tname"];
+        
+        CGFloat width = 24 + 20*[tname length];
+        return CGSizeMake(width, 38);
     }else
     {
         return _newsCollectionView.bounds.size;

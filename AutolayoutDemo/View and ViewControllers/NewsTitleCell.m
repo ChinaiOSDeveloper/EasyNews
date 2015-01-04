@@ -39,5 +39,14 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    self.backgroundColor = [UIColor clearColor];
+    
+    NSArray *tList = [_infoDict valueForKey:@"tList"];
+    NSDictionary *dict = [tList firstObject];
+    NSString *tname = [dict valueForKey:@"tname"];
+    _newsTitle.text = tname;
+    
+//    NSLog(@"%@",dict);
 }
 @end

@@ -38,7 +38,6 @@
 		E4D3F11F1A597C2300B3A0A1 /* lijinheiW8.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11B1A597C2300B3A0A1 /* lijinheiW8.TTF */; };
 		E4D3F1201A597C2300B3A0A1 /* StencilStd.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11C1A597C2300B3A0A1 /* StencilStd.ttf */; };
 		E4D3F12F1A597CA600B3A0A1 /* DBPictureVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D3F1231A597CA600B3A0A1 /* DBPictureVC.m */; };
-		E4D3F1301A597CA600B3A0A1 /* NewsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D3F1251A597CA600B3A0A1 /* NewsCenter.m */; };
 		E4D3F1311A597CA600B3A0A1 /* NewsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D3F1271A597CA600B3A0A1 /* NewsDetailViewController.m */; };
 		E4D3F1321A597CA600B3A0A1 /* NewsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D3F1291A597CA600B3A0A1 /* NewsTableView.m */; };
 		E4D3F1331A597CA600B3A0A1 /* NewsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D3F12B1A597CA600B3A0A1 /* NewsTableViewCell.m */; };
@@ -119,8 +118,6 @@
 		E4D3F11C1A597C2300B3A0A1 /* StencilStd.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = StencilStd.ttf; sourceTree = "<group>"; };
 		E4D3F1221A597CA600B3A0A1 /* DBPictureVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPictureVC.h; sourceTree = "<group>"; };
 		E4D3F1231A597CA600B3A0A1 /* DBPictureVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBPictureVC.m; sourceTree = "<group>"; };
-		E4D3F1241A597CA600B3A0A1 /* NewsCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsCenter.h; sourceTree = "<group>"; };
-		E4D3F1251A597CA600B3A0A1 /* NewsCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsCenter.m; sourceTree = "<group>"; };
 		E4D3F1261A597CA600B3A0A1 /* NewsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsDetailViewController.h; sourceTree = "<group>"; };
 		E4D3F1271A597CA600B3A0A1 /* NewsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsDetailViewController.m; sourceTree = "<group>"; };
 		E4D3F1281A597CA600B3A0A1 /* NewsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsTableView.h; sourceTree = "<group>"; };
@@ -330,8 +327,6 @@
 			children = (
 				E4D3F1221A597CA600B3A0A1 /* DBPictureVC.h */,
 				E4D3F1231A597CA600B3A0A1 /* DBPictureVC.m */,
-				E4D3F1241A597CA600B3A0A1 /* NewsCenter.h */,
-				E4D3F1251A597CA600B3A0A1 /* NewsCenter.m */,
 				E4D3F1261A597CA600B3A0A1 /* NewsDetailViewController.h */,
 				E4D3F1271A597CA600B3A0A1 /* NewsDetailViewController.m */,
 				E4D3F1281A597CA600B3A0A1 /* NewsTableView.h */,
@@ -486,7 +481,6 @@
 				E42AB9B61A5684D50004E1E8 /* UIImage+WTRequestCenter.m in Sources */,
 				E42AB9B11A5684D50004E1E8 /* UIAlertView+WTRequestCenter.m in Sources */,
 				E4D3F1311A597CA600B3A0A1 /* NewsDetailViewController.m in Sources */,
-				E4D3F1301A597CA600B3A0A1 /* NewsCenter.m in Sources */,
 				E42AB9B31A5684D50004E1E8 /* UIButton+WTRequestCenter.m in Sources */,
 				E42AB9BF1A5684D50004E1E8 /* WTURLRequestSerialization.m in Sources */,
 			);

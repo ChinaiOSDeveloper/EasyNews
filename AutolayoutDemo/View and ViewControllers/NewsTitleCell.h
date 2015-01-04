@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsTitleCell : UICollectionViewCell
+@property (nonatomic,strong) NSDictionary *infoDict;
+
 @property (weak, nonatomic) IBOutlet UILabel *newsTitle;
 
 @end
