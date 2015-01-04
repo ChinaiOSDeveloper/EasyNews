@@ -63,12 +63,12 @@
 }
 -(void)reloadData
 {
-//    if ([_dataList count]==0) {
+
     
-        NSArray *tList = [_newsDict valueForKey:@"tList"];
-        NSDictionary *dict = [tList firstObject];
-        NSString *tid = [dict valueForKey:@"tid"];
-        NSString *url = [self urlWithTid:tid];
+    NSArray *tList = [_newsDict valueForKey:@"tList"];
+    NSDictionary *dict = [tList firstObject];
+    NSString *tid = [dict valueForKey:@"tid"];
+    NSString *url = [self urlWithTid:tid];
     
     
     [WTRequestCenter getWithURL:url
@@ -96,7 +96,6 @@
                        } failed:^(NSURLResponse *response, NSError *error) {
                            
                        }];
-//    }
 
 }
 
