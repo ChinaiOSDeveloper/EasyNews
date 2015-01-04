@@ -15,7 +15,7 @@ EasyNews
 - 头文件要有一定量的注释.
 - 不使用prefix header 文件,节省编译时间.
 - 图片使用Images.xcassets.
-- 千万别在View里面对数据做任何修改，View只能展现这里的View指的是MVC里面的View.
+- 千万别在View里面对数据做任何修改，View只能展现数据.这里的View指的是MVC里面的View.
 
 
 ##弱规范
