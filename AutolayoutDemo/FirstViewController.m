@@ -224,10 +224,11 @@
                                             animated:YES];
         
         
-//        [_newsCollectionView reloadItemsAtIndexPaths:@[indexPath]];
+        /*
         [_newsCollectionView performSelector:@selector(reloadItemsAtIndexPaths:)
                                   withObject:@[indexPath]
                                   afterDelay:0.5];
+         */
         
     }
 }
