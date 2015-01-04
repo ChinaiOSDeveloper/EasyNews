@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 //#import "WTNetWork.h"
 #import "UIKit+WTRequestCenter.h"
+#import "GBVersionTracking.h"
 @interface AppDelegate ()
 
 @end
@@ -18,7 +19,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+//    网络指示器
     [WTNetworkActivityIndicatorManager sharedManager].enabled = YES;
+
+//    启动记录
+    [GBVersionTracking track];
 
     return YES;
 }
