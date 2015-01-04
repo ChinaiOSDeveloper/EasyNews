@@ -11,3 +11,6 @@
 @interface NewsTableViewCell : UITableViewCell
 @property (nonatomic,strong) NSDictionary *newsData;
 @end
+
+
+//file:///Users/song/https:/github.com/rs/EasyNews/AutolayoutDemo/View%20and%20ViewControllers/NewsTableViewCell.xib: warning: Attribute Unavailable: Automatic Preferred Max Layout Width is not available on iOS versions prior to 8.0
