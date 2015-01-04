@@ -12,3 +12,4 @@ EasyNews
 - push之前尽量去掉或者注释掉输出，多注意，方便debug。
 - 协议用"#pragma mark - protocol"来标记
 - 不使用Model类
+- 头文件要有一定量的注释
