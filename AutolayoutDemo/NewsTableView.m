@@ -65,15 +65,27 @@
 {
 
     
+    [self reloadDataForce:NO];
+
+}
+
+-(void)reloadDataForce:(BOOL)force
+{
+    
     NSArray *tList = [_newsDict valueForKey:@"tList"];
     NSDictionary *dict = [tList firstObject];
     NSString *tid = [dict valueForKey:@"tid"];
     NSString *url = [self urlWithTid:tid];
     
     
+    NSTimeInterval expireTime = 60*5;
+    if (force) {
+        expireTime = 0;
+    }
+    
     [WTRequestCenter getWithURL:url
                      parameters:nil
-                     expireTime:60*5
+                     expireTime:expireTime
                        finished:^(NSURLResponse *response, NSData *data) {
                            NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
                            
@@ -96,7 +108,6 @@
                        } failed:^(NSURLResponse *response, NSError *error) {
                            
                        }];
-
 }
 
 //分页的大小
