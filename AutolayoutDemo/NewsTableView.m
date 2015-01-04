@@ -78,10 +78,17 @@
 
                                
                                NSArray *newsList = [[dict allValues] lastObject];
-                               [_dataList removeAllObjects];
-                               [self.dataList addObjectsFromArray:newsList];
+                               if ([newsList count]==0) {
+//                                   如果没有从网络上得到数据，就不刷新
+                                   
+                               }else
+                               {
+                                   [_dataList removeAllObjects];
+                                   [self.dataList addObjectsFromArray:newsList];
+                                   
+                                   [_myTableView reloadData];
+                               }
                                
-                               [_myTableView reloadData];
                            } failed:^(NSURLResponse *response, NSError *error) {
                                
                            }];
