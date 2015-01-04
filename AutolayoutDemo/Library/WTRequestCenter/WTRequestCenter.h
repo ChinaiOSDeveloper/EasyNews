@@ -6,17 +6,17 @@
 //  Copyright (c) Mike song(mailto:275712575@qq.com). All rights reserved.
 //  site:https://github.com/swtlovewtt/WTRequestCenter
 /*
-    这是一个方便的缓存式网络请求的缓存库，在网络不好
+ 这是一个方便的缓存式网络请求的缓存库，在网络不好
  或者没有网络的情况下方便读取缓存来看。
  
  使用方法很简单，只需要传URL和参数就可以了。
-
-    还提供上传图片功能，下载图片功能，缓存图片功能
+ 
+ 还提供上传图片功能，下载图片功能，缓存图片功能
  还有JSON解析功能，还提供来一个URL的表让你来填写
  然后直接快捷取URL。
-    希望能帮到你，谢谢。
-    如果有任何问题可以在github上向我提出
-                                Mike
+ 希望能帮到你，谢谢。
+ 如果有任何问题可以在github上向我提出
+ Mike
  
  */
 #import <Foundation/Foundation.h>
@@ -83,7 +83,7 @@ typedef void (^WTDownLoadProgressBlock)(NSUInteger bytesRead,long long totalByte
              failed:(WTRequestFailedBlock)failed;
 
 /*
-  执行一个NSURLRequest请求,缓存策略只适用于Get情况
+ 执行一个NSURLRequest请求,缓存策略只适用于Get情况
  */
 +(void)doURLRequest:(NSURLRequest*)request
              option:(WTRequestCenterCachePolicy)option
@@ -127,7 +127,7 @@ typedef void (^WTDownLoadProgressBlock)(NSUInteger bytesRead,long long totalByte
                       failed:(WTRequestFailedBlock)failed;
 
 /*!
-    根据接口索引去执行请求.
+ 根据接口索引去执行请求.
  */
 +(NSURLRequest*)getWithIndex:(NSInteger)index
                   parameters:(NSDictionary *)parameters
@@ -136,10 +136,18 @@ typedef void (^WTDownLoadProgressBlock)(NSUInteger bytesRead,long long totalByte
                       failed:(WTRequestFailedBlock)failed;
 
 
+/*!
+ 给出实效时间来请求
+ */
++(NSURLRequest*)getWithURL:(NSString*)url
+                parameters:(NSDictionary *)parameters
+                expireTime:(NSTimeInterval)time
+                  finished:(WTRequestFinishedBlock)finished
+                    failed:(WTRequestFailedBlock)failed;
 #pragma mark - POST
 
 /*!
-    根据索引和参数去POST
+ 根据索引和参数去POST
  */
 +(NSURLRequest*)postWithIndex:(NSInteger)index
                    parameters:(NSDictionary*)parameters
@@ -160,7 +168,7 @@ typedef void (^WTDownLoadProgressBlock)(NSUInteger bytesRead,long long totalByte
                      failed:(WTRequestFailedBlock)failed;
 
 /*!
-    数据上传
+ 数据上传
  */
 +(NSURLRequest*)postWithURL:(NSString*)url
                  parameters:(NSDictionary*)parameters
@@ -170,7 +178,7 @@ typedef void (^WTDownLoadProgressBlock)(NSUInteger bytesRead,long long totalByte
 
 
 /*!
-    PUT请求
+ PUT请求
  */
 +(NSURLRequest*)putWithURL:(NSString*)url
                 parameters:(NSDictionary*)parameters
@@ -219,9 +227,12 @@ typedef void (^WTDownLoadProgressBlock)(NSUInteger bytesRead,long long totalByte
 
 #endif
 #pragma mark - 辅助
-//JSON解析
+//JSON转对象
 +(id)JSONObjectWithData:(NSData*)data;
 +(NSString*)stringWithData:(NSObject*)data;
+
+//JSON对象转data
++(NSData*)dataFromJSONObject:(id)object;
 #pragma mark - URL
 //根路径
 +(NSString *)baseURL;
@@ -288,6 +299,6 @@ extern NSString * const WTNetworkingOperationDidFinishNotification;
 
 
 /*!
-    Debug模式
+ Debug模式
  */
 extern BOOL const WTRequestCenterDebugMode;

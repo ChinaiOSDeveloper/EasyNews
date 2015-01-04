@@ -69,32 +69,33 @@
         NSDictionary *dict = [tList firstObject];
         NSString *tid = [dict valueForKey:@"tid"];
         NSString *url = [self urlWithTid:tid];
-        [WTRequestCenter getWithURL:url
-                         parameters:nil
-                             option:WTRequestCenterCachePolicyCacheAndWeb
-                           finished:^(NSURLResponse *response, NSData *data) {
+    
+    
+    [WTRequestCenter getWithURL:url
+                     parameters:nil
+                     expireTime:60*5
+                       finished:^(NSURLResponse *response, NSData *data) {
+                           NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
+                           
+                           
+                           NSArray *newsList = [[dict allValues] lastObject];
+                           if ([newsList count]==0) {
+                               //                                   如果没有从网络上得到数据，就不刷新
                                
-                               NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
-
-                               
-                               NSArray *newsList = [[dict allValues] lastObject];
-                               if ([newsList count]==0) {
-//                                   如果没有从网络上得到数据，就不刷新
-                                   
-                               }else
-                               {
-                                   if ([_dataList isEqualToArray:newsList]) {
-                                       return;
-                                   }
-                                   [_dataList removeAllObjects];
-                                   [self.dataList addObjectsFromArray:newsList];
-                                   
-                                   [_myTableView reloadData];
+                           }else
+                           {
+                               if ([_dataList isEqualToArray:newsList]) {
+                                   return;
                                }
+                               [_dataList removeAllObjects];
+                               [self.dataList addObjectsFromArray:newsList];
                                
-                           } failed:^(NSURLResponse *response, NSError *error) {
-                               
-                           }];
+                               [_myTableView reloadData];
+                           }
+                           
+                       } failed:^(NSURLResponse *response, NSError *error) {
+                           
+                       }];
 //    }
 
 }
