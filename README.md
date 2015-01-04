@@ -13,3 +13,4 @@ EasyNews
 - 协议用"#pragma mark - protocol"来标记
 - 不使用Model类
 - 头文件要有一定量的注释
+- 不使用prefix header 文件
