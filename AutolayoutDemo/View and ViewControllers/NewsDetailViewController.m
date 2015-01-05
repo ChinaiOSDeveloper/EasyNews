@@ -55,6 +55,17 @@
 
             dict = [dict valueForKey:docid];
             
+            NSNumber *replyCount = [dict valueForKey:@"replyCount"];
+            NSString *replyCountString = [NSString stringWithFormat:@"%@评论",replyCount];
+            
+            UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:replyCountString
+                                                                     style:UIBarButtonItemStylePlain
+                                                                    target:self
+                                                                    action:@selector(commentButtonPressed:)];
+            self.navigationItem.rightBarButtonItem = item;
+            
+            
+            
             NSString *body = [dict valueForKey:@"body"];
             [_myWebView loadHTMLString:body baseURL:nil];
             
@@ -65,6 +76,13 @@
         }];
     }
 
+}
+
+
+//评论点击
+-(void)commentButtonPressed:(id)sender
+{
+    
 }
 
 - (void)didReceiveMemoryWarning {
