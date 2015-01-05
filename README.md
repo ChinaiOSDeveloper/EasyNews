@@ -19,5 +19,3 @@ EasyNews
 - View千万不要处理业务逻辑.否则别怪我驳回代码。
 - 能用OperationQueue的地方不要用GCD.
 
-##有问题请联系我
-- 宋文通
