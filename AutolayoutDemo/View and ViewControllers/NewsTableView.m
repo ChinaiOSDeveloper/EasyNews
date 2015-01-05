@@ -76,14 +76,11 @@
     NSString *url = [self urlWithTid:tid];
     
     
-    NSTimeInterval expireTime = 60*5;
-    if (force) {
-        expireTime = 0;
-    }
+
     
     [WTRequestCenter getWithURL:url
                      parameters:nil
-                     expireTime:expireTime
+                         option:WTRequestCenterCachePolicyCacheAndWeb
                        finished:^(NSURLResponse *response, NSData *data) {
                            NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
                            
@@ -102,10 +99,11 @@
                                
                                [_myTableView reloadData];
                            }
-                           
+
                        } failed:^(NSURLResponse *response, NSError *error) {
                            
                        }];
+
 }
 
 //分页的大小
