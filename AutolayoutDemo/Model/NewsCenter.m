@@ -68,12 +68,15 @@ static NSString *localColumnName = @"NewsCenter local column name";
  http://comment.api.163.com/api/json/post/list/new/hot/3g_bbs/AF661E1900963VRO/0/10/10/2/2
 
  
- 这个是正常的评论
+ 这个是正常的评论 0-9
  http://comment.api.163.com/api/json/post/list/new/normal/3g_bbs/AF661E1900963VRO/desc/0/10/10/2/2
  
- 分页这是10
+ 分页这是 10-19
  http://comment.api.163.com/api/json/post/list/new/normal/3g_bbs/AF661E1900963VRO/desc/10/10/10/2/2
 
- 这是20
+ 这是   20-29
  http://comment.api.163.com/api/json/post/list/new/normal/3g_bbs/AF661E1900963VRO/desc/20/10/10/2/2
+ 
+ 30-39
+ http://comment.api.163.com/api/json/post/list/new/normal/3g_bbs/AF661E1900963VRO/desc/30/10/10/2/2
  */
