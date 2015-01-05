@@ -15,8 +15,9 @@ EasyNews
 - 头文件要有一定量的注释.
 - 不使用prefix header 文件,节省编译时间.
 - 图片使用Images.xcassets.
-- 千万别在View里面对数据做任何修改，View只能展现数据.这里的View指的是MVC里面的View.
-
-
-##弱规范
+- 千万别在View里面对数据做任何修改，View只能展现数据.这里的View指的是MVC里面的View.否则别怪我驳回代码。
+- View千万不要处理业务逻辑.否则别怪我驳回代码。
 - 能用OperationQueue的地方不要用GCD.
+
+##有问题请联系我
+- 宋文通
