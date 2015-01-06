@@ -7,8 +7,11 @@
 //
 
 #import "CommentVC.h"
+#import "WTRequestCenter.h"
 
 @interface CommentVC ()
+
+@property (nonatomic,strong)NSArray *hotCommentsArray;
 
 @end
 
@@ -16,7 +19,17 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    
+        //请求数据
+    NSString *urlString = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/3g_bbs/%@/0/10/10/2/2",[_articleInfo objectForKey:@"docid"]];
+    [WTRequestCenter getWithURL:urlString parameters:nil finished:^(NSURLResponse *response, NSData *data) {
+            //NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+            //NSDictionary *dic = [WTRequestCenter JSONObjectWithData:data];
+            //NSLog(@"%@",str);
+    } failed:^(NSURLResponse *response, NSError *error) {
+        
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning {

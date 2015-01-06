@@ -10,4 +10,6 @@
 
 @interface CommentVC : UIViewController
 
+@property (nonatomic,strong) NSDictionary *articleInfo;
+
 @end

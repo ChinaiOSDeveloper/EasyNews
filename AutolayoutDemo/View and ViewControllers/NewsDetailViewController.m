@@ -8,6 +8,7 @@
 
 #import "NewsDetailViewController.h"
 #import "WTNetWork.h"
+#import "CommentVC.h"
 @interface NewsDetailViewController ()
 {
 
@@ -82,6 +83,9 @@
 //评论点击
 -(void)commentButtonPressed:(id)sender
 {
+    CommentVC *vc = [[CommentVC alloc] init];
+    vc.articleInfo = _articleInfo;
+    [self.navigationController pushViewController:vc animated:YES];
     
 }
 
