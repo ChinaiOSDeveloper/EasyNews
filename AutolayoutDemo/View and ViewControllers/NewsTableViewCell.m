@@ -28,9 +28,10 @@
 -(void)prepareForReuse
 {
     [super prepareForReuse];
-//    _newsImage.image = nil;
-//    WTURLRequestOperation *operation = _newsImage.wtImageRequestOperation;
-//    [operation cancel];
+    self.newsData = nil;
+    _newsImage.image = nil;
+    WTURLRequestOperation *operation = _newsImage.wtImageRequestOperation;
+    [operation cancel];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

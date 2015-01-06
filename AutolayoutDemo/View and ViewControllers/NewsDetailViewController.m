@@ -48,7 +48,7 @@
         NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",docid];
         [WTRequestCenter getWithURL:url
                          parameters:nil
-                             option:WTRequestCenterCachePolicyCacheElseWeb
+                             option:WTRequestCenterCachePolicyCacheAndWeb
                            finished:^(NSURLResponse *response, NSData *data)
         {
             NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];

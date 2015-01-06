@@ -57,6 +57,8 @@
 -(void)prepareForReuse
 {
     [super prepareForReuse];
+    self.newsDict = nil;
+    
 
 }
 -(void)reloadData
