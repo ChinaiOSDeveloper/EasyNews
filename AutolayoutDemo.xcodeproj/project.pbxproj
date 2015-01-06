@@ -150,6 +150,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1E4A42491A5BAB2C001577F5 /* NewsList */ = {
+			isa = PBXGroup;
+			children = (
+				E4D3F1281A597CA600B3A0A1 /* NewsTableView.h */,
+				E4D3F1291A597CA600B3A0A1 /* NewsTableView.m */,
+				E4D3F12A1A597CA600B3A0A1 /* NewsTableViewCell.h */,
+				E4D3F12B1A597CA600B3A0A1 /* NewsTableViewCell.m */,
+				E4D3F12C1A597CA600B3A0A1 /* NewsTableViewCell.xib */,
+				E4D3F12D1A597CA600B3A0A1 /* NewsTitleCell.h */,
+				E4D3F12E1A597CA600B3A0A1 /* NewsTitleCell.m */,
+			);
+			name = NewsList;
+			sourceTree = "<group>";
+		};
+		1E4A424A1A5BAC12001577F5 /* NewsDetail */ = {
+			isa = PBXGroup;
+			children = (
+				E4D3F1261A597CA600B3A0A1 /* NewsDetailViewController.h */,
+				E4D3F1271A597CA600B3A0A1 /* NewsDetailViewController.m */,
+			);
+			name = NewsDetail;
+			sourceTree = "<group>";
+		};
 		E1CAE6F61A593BE000784DFD /* GBVersionTracking */ = {
 			isa = PBXGroup;
 			children = (
@@ -327,15 +350,8 @@
 			children = (
 				E4D3F1221A597CA600B3A0A1 /* DBPictureVC.h */,
 				E4D3F1231A597CA600B3A0A1 /* DBPictureVC.m */,
-				E4D3F1261A597CA600B3A0A1 /* NewsDetailViewController.h */,
-				E4D3F1271A597CA600B3A0A1 /* NewsDetailViewController.m */,
-				E4D3F1281A597CA600B3A0A1 /* NewsTableView.h */,
-				E4D3F1291A597CA600B3A0A1 /* NewsTableView.m */,
-				E4D3F12A1A597CA600B3A0A1 /* NewsTableViewCell.h */,
-				E4D3F12B1A597CA600B3A0A1 /* NewsTableViewCell.m */,
-				E4D3F12C1A597CA600B3A0A1 /* NewsTableViewCell.xib */,
-				E4D3F12D1A597CA600B3A0A1 /* NewsTitleCell.h */,
-				E4D3F12E1A597CA600B3A0A1 /* NewsTitleCell.m */,
+				1E4A424A1A5BAC12001577F5 /* NewsDetail */,
+				1E4A42491A5BAB2C001577F5 /* NewsList */,
 			);
 			path = "View and ViewControllers";
 			sourceTree = "<group>";
