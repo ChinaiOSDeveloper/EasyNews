@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1EC138131A5BB9E600231EB7 /* CommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC138111A5BB9E600231EB7 /* CommentVC.m */; };
+		1EC138141A5BB9E600231EB7 /* CommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EC138121A5BB9E600231EB7 /* CommentVC.xib */; };
 		E1CAE6F91A593BE000784DFD /* GBVersionTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CAE6F81A593BE000784DFD /* GBVersionTracking.m */; };
 		E1CAE6FD1A59411F00784DFD /* UICKeyChainStore.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CAE6FC1A59411F00784DFD /* UICKeyChainStore.m */; };
 		E42AB95D1A5680240004E1E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB95C1A5680240004E1E8 /* main.m */; };
@@ -58,6 +60,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1EC138101A5BB9E600231EB7 /* CommentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentVC.h; sourceTree = "<group>"; };
+		1EC138111A5BB9E600231EB7 /* CommentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentVC.m; sourceTree = "<group>"; };
+		1EC138121A5BB9E600231EB7 /* CommentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentVC.xib; sourceTree = "<group>"; };
 		E1CAE6F71A593BE000784DFD /* GBVersionTracking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GBVersionTracking.h; sourceTree = "<group>"; };
 		E1CAE6F81A593BE000784DFD /* GBVersionTracking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GBVersionTracking.m; sourceTree = "<group>"; };
 		E1CAE6FB1A59411F00784DFD /* UICKeyChainStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICKeyChainStore.h; sourceTree = "<group>"; };
@@ -171,6 +176,16 @@
 				E4D3F1271A597CA600B3A0A1 /* NewsDetailViewController.m */,
 			);
 			name = NewsDetail;
+			sourceTree = "<group>";
+		};
+		1EC1380F1A5BB93C00231EB7 /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				1EC138101A5BB9E600231EB7 /* CommentVC.h */,
+				1EC138111A5BB9E600231EB7 /* CommentVC.m */,
+				1EC138121A5BB9E600231EB7 /* CommentVC.xib */,
+			);
+			name = Comment;
 			sourceTree = "<group>";
 		};
 		E1CAE6F61A593BE000784DFD /* GBVersionTracking */ = {
@@ -350,6 +365,7 @@
 			children = (
 				E4D3F1221A597CA600B3A0A1 /* DBPictureVC.h */,
 				E4D3F1231A597CA600B3A0A1 /* DBPictureVC.m */,
+				1EC1380F1A5BB93C00231EB7 /* Comment */,
 				1E4A424A1A5BAC12001577F5 /* NewsDetail */,
 				1E4A42491A5BAB2C001577F5 /* NewsList */,
 			);
@@ -453,6 +469,7 @@
 				E4D3F11F1A597C2300B3A0A1 /* lijinheiW8.TTF in Resources */,
 				E4D3F11D1A597C2300B3A0A1 /* DS-DIGI.TTF in Resources */,
 				E4D3F1341A597CA600B3A0A1 /* NewsTableViewCell.xib in Resources */,
+				1EC138141A5BB9E600231EB7 /* CommentVC.xib in Resources */,
 				E4D3F1201A597C2300B3A0A1 /* StencilStd.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -473,6 +490,7 @@
 			files = (
 				E42AB9BC1A5684D50004E1E8 /* WTNetworkActivityIndicatorManager.m in Sources */,
 				E42AB9BE1A5684D50004E1E8 /* WTURLRequestOperation.m in Sources */,
+				1EC138131A5BB9E600231EB7 /* CommentVC.m in Sources */,
 				E4D3F1321A597CA600B3A0A1 /* NewsTableView.m in Sources */,
 				E42AB9B71A5684D50004E1E8 /* UIImageView+WTRequestCenter.m in Sources */,
 				E42AB9B91A5684D50004E1E8 /* UIWebView+WTRequestCenter.m in Sources */,
