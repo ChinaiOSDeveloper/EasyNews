@@ -9,6 +9,7 @@
 #import "NewsTableView.h"
 #import "NewsTableViewCell.h"
 #import "WTNetWork.h"
+#import "NewsHeadTableViewCell.h"
 @interface NewsTableView () <UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *_myTableView;
@@ -39,6 +40,13 @@
         
         [_myTableView registerNib:nib
           forCellReuseIdentifier:@"NewsTableViewCell"];
+        
+        nib = [UINib nibWithNibName:@"NewsHeadTableViewCell"
+                             bundle:nil];
+        
+        [_myTableView registerNib:nib
+           forCellReuseIdentifier:@"NewsHeadTableViewCell"];
+        
         
 
     }
@@ -197,10 +205,25 @@ static NSInteger pageSize = 20;
          cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell= nil;
-    cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell"];
     
-    NewsTableViewCell *temp = (NewsTableViewCell*)cell;
-    temp.newsData = _dataList[indexPath.row];
+//    新闻内容
+    NSDictionary *newsInfo = _dataList[indexPath.row];
+    
+    
+    if (indexPath.row==0) {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"NewsHeadTableViewCell"];
+        NewsHeadTableViewCell *temp = (NewsHeadTableViewCell*)cell;
+        temp.newsInfo = newsInfo;
+    }else
+    {
+        cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell"];
+        NewsTableViewCell *temp = (NewsTableViewCell*)cell;
+        temp.newsData = newsInfo;
+    }
+    
+    
+    
+    
 //    temp.textLabel.text = @"asdasdasd";
     return cell;
 }
@@ -223,7 +246,14 @@ static NSInteger pageSize = 20;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 90;
+    CGFloat height = 0;
+    if (indexPath.row==0) {
+        height = 150;
+    }else
+    {
+        height = 90;
+    }
+    return height;
 }
 
 

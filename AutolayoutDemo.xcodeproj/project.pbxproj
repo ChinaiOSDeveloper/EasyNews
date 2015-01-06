@@ -35,6 +35,8 @@
 		E42AB9BE1A5684D50004E1E8 /* WTURLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB9AC1A5684D50004E1E8 /* WTURLRequestOperation.m */; };
 		E42AB9BF1A5684D50004E1E8 /* WTURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB9AE1A5684D50004E1E8 /* WTURLRequestSerialization.m */; };
 		E42AB9C01A5684D50004E1E8 /* WTURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB9B01A5684D50004E1E8 /* WTURLSessionManager.m */; };
+		E46564A01A5C2E9300419FC2 /* NewsHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E465649E1A5C2E9300419FC2 /* NewsHeadTableViewCell.m */; };
+		E46564A11A5C2E9300419FC2 /* NewsHeadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E465649F1A5C2E9300419FC2 /* NewsHeadTableViewCell.xib */; };
 		E4D3F11D1A597C2300B3A0A1 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F1191A597C2300B3A0A1 /* DS-DIGI.TTF */; };
 		E4D3F11E1A597C2300B3A0A1 /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11A1A597C2300B3A0A1 /* DS-DIGIB.TTF */; };
 		E4D3F11F1A597C2300B3A0A1 /* lijinheiW8.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11B1A597C2300B3A0A1 /* lijinheiW8.TTF */; };
@@ -117,6 +119,9 @@
 		E42AB9AE1A5684D50004E1E8 /* WTURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTURLRequestSerialization.m; sourceTree = "<group>"; };
 		E42AB9AF1A5684D50004E1E8 /* WTURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WTURLSessionManager.h; sourceTree = "<group>"; };
 		E42AB9B01A5684D50004E1E8 /* WTURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WTURLSessionManager.m; sourceTree = "<group>"; };
+		E465649D1A5C2E9300419FC2 /* NewsHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsHeadTableViewCell.h; sourceTree = "<group>"; };
+		E465649E1A5C2E9300419FC2 /* NewsHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsHeadTableViewCell.m; sourceTree = "<group>"; };
+		E465649F1A5C2E9300419FC2 /* NewsHeadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsHeadTableViewCell.xib; sourceTree = "<group>"; };
 		E4D3F1191A597C2300B3A0A1 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
 		E4D3F11A1A597C2300B3A0A1 /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIB.TTF"; sourceTree = "<group>"; };
 		E4D3F11B1A597C2300B3A0A1 /* lijinheiW8.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = lijinheiW8.TTF; sourceTree = "<group>"; };
@@ -165,6 +170,9 @@
 				E4D3F12C1A597CA600B3A0A1 /* NewsTableViewCell.xib */,
 				E4D3F12D1A597CA600B3A0A1 /* NewsTitleCell.h */,
 				E4D3F12E1A597CA600B3A0A1 /* NewsTitleCell.m */,
+				E465649D1A5C2E9300419FC2 /* NewsHeadTableViewCell.h */,
+				E465649E1A5C2E9300419FC2 /* NewsHeadTableViewCell.m */,
+				E465649F1A5C2E9300419FC2 /* NewsHeadTableViewCell.xib */,
 			);
 			name = NewsList;
 			sourceTree = "<group>";
@@ -462,6 +470,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42AB9691A5680240004E1E8 /* Main.storyboard in Resources */,
+				E46564A11A5C2E9300419FC2 /* NewsHeadTableViewCell.xib in Resources */,
 				E4D3F11E1A597C2300B3A0A1 /* DS-DIGIB.TTF in Resources */,
 				E42AB96E1A5680240004E1E8 /* LaunchScreen.xib in Resources */,
 				E4D3F13B1A597DF700B3A0A1 /* topic_news.json in Resources */,
@@ -516,6 +525,7 @@
 				E42AB9B11A5684D50004E1E8 /* UIAlertView+WTRequestCenter.m in Sources */,
 				E4D3F1311A597CA600B3A0A1 /* NewsDetailViewController.m in Sources */,
 				E42AB9B31A5684D50004E1E8 /* UIButton+WTRequestCenter.m in Sources */,
+				E46564A01A5C2E9300419FC2 /* NewsHeadTableViewCell.m in Sources */,
 				E42AB9BF1A5684D50004E1E8 /* WTURLRequestSerialization.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
