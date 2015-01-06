@@ -145,8 +145,11 @@ static NSInteger pageSize = 20;
                            
                            
                            NSArray *newsList = [[dict allValues] lastObject];
-                           [self.dataList addObjectsFromArray:newsList];
-                           [_myTableView reloadData];
+                           if ([newsList count]>0) {
+                               [self.dataList addObjectsFromArray:newsList];
+                               [_myTableView reloadData];
+                           }
+
                            
                        } failed:^(NSURLResponse *response, NSError *error) {
                            _loadingMore = NO;
