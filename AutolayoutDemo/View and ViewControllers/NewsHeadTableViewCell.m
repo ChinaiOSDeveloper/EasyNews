@@ -11,8 +11,15 @@
 #import "UIKit+WTRequestCenter.h"
 @interface NewsHeadTableViewCell()
 {
+    
+//    图片数组
     NSMutableArray *_imageArray;
+    
+//    标题
+    UILabel *_titleLabel;
 }
+
+
 @end
 @implementation NewsHeadTableViewCell
 
