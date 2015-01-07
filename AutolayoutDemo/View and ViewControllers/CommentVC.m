@@ -8,6 +8,7 @@
 
 #import "CommentVC.h"
 #import "WTRequestCenter.h"
+#import "CommentCell.h"
 
 @interface CommentVC ()<UITableViewDataSource,UITableViewDelegate>{
     
@@ -20,8 +21,11 @@
 
 @implementation CommentVC
 
+
+#pragma mark- view
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [_table registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil] forCellReuseIdentifier:@"comment"];
         //NSLog(@"%@",_articleInfo);
         //NSLog(@"%@",[_articleInfo objectForKey:@"source"]);
         //请求数据，先尝试从news_guonei8_bbs请求；
@@ -63,16 +67,16 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell"];
-    if (!cell) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:@"cell"];
-    }
+    CommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"comment"];
+    
     NSDictionary *dic = [_hotCommentsArray objectAtIndex:indexPath.row];
+    [cell setContentWithData:dic];
     
-    cell.textLabel.text = [[dic objectForKey:@"1"] objectForKey:@"f"];
-    
-    cell.detailTextLabel.text = [[dic objectForKey:@"1"] objectForKey:@"b"];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 120;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{

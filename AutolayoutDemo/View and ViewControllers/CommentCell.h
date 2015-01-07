@@ -10,4 +10,13 @@
 
 @interface CommentCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIImageView *headImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *commentCountLabel;
+@property (weak, nonatomic) IBOutlet UIButton *zanButton;
+
+- (void)setContentWithData:(NSDictionary *)dic;
+
+
 @end
