@@ -25,6 +25,7 @@
 #pragma mark- view
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     [_table registerNib:[UINib nibWithNibName:@"CommentCell" bundle:nil] forCellReuseIdentifier:@"comment"];
         //NSLog(@"%@",_articleInfo);
         //NSLog(@"%@",[_articleInfo objectForKey:@"source"]);
@@ -41,9 +42,15 @@
             [WTRequestCenter getWithURL:secUrl parameters:nil finished:^(NSURLResponse *response, NSData *data) {
                 NSDictionary *secDic = [WTRequestCenter JSONObjectWithData:data];
                 self.hotCommentsArray = [secDic objectForKey:@"hotPosts"];
-                NSString *secStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
-                NSLog(@"---%@",secStr);
-                [_table reloadData];
+                if ([_hotCommentsArray isEqual:[NSNull null]]) {
+
+                }else
+                {
+                    NSString *secStr = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+                    NSLog(@"---%@",secStr);
+                    [_table reloadData];
+                }
+                
             } failed:^(NSURLResponse *response, NSError *error) {
                 NSLog(@"请求失败%@",error.localizedDescription);
             }];
