@@ -76,7 +76,9 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 120;
+    NSDictionary *dic = [_hotCommentsArray objectAtIndex:indexPath.row];
+    
+    return [self calculateHeightForData:dic];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
@@ -96,6 +98,30 @@
     [view addSubview:label];
     
     return view;
+}
+
+#pragma mark- commonMethod
+- (CGFloat)calculateHeightForData:(NSDictionary *)dic{
+    NSArray *comArr = [dic allValues];
+    int commentLabelY = 66+(int)(comArr.count-1)*3;
+    
+    for (int i = 0; i<comArr.count; i++) {
+        NSDictionary *comment = [[dic allValues] objectAtIndex:comArr.count-1-i];
+        NSString *commentText = [comment objectForKey:@"b"];
+        NSLog(@"%@",commentText);
+        if (i<comArr.count-1&&comArr.count>1) {
+            int thisWidth = SCREEN_WIDTH-16-6*(comArr.count-i);
+            CGRect rect = [commentText boundingRectWithSize:CGSizeMake(thisWidth, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil];
+
+            commentLabelY = commentLabelY+rect.size.height+3+20;
+        }else{
+                //评论
+            CGRect rect = [commentText boundingRectWithSize:CGSizeMake(SCREEN_WIDTH-16, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil];
+            
+            commentLabelY = commentLabelY+rect.size.height;
+        }
+    }
+    return commentLabelY+5;
 }
 
 

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
 @interface CommentCell : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
