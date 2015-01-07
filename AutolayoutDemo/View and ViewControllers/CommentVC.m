@@ -22,10 +22,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
         //NSLog(@"%@",_articleInfo);
         //NSLog(@"%@",[_articleInfo objectForKey:@"source"]);
-    
         //请求数据，先尝试从news_guonei8_bbs请求；
     NSString *urlString = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/news_guonei8_bbs/%@/0/10/10/2/2",[_articleInfo objectForKey:@"docid"]];
     NSLog(@"%@",urlString);
@@ -55,7 +53,7 @@
     
 }
 
-
+#pragma mark- tableView
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     if (section == 0) {
         return self.hotCommentsArray.count;
@@ -77,11 +75,26 @@
     return cell;
 }
 
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 40;
 }
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] init];
+    
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(-10, 5, 90, 40)];
+    imgView.image = [[UIImage imageNamed:@"contentview_commentbacky"] stretchableImageWithLeftCapWidth:20 topCapHeight:22];
+    [view addSubview:imgView];
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(8, 15, 70, 20)];
+    label.font = [UIFont systemFontOfSize:14];
+    label.textColor = [UIColor whiteColor];
+    label.text = @"热门跟帖";
+    [view addSubview:label];
+    
+    return view;
+}
+
+
 
 /*
 #pragma mark - Navigation

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1E69D8BA1A5D0F810071FD78 /* CommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 1E69D8B81A5D0F810071FD78 /* CommentCell.m */; };
+		1E69D8BB1A5D0F810071FD78 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1E69D8B91A5D0F810071FD78 /* CommentCell.xib */; };
 		1EC138131A5BB9E600231EB7 /* CommentVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EC138111A5BB9E600231EB7 /* CommentVC.m */; };
 		1EC138141A5BB9E600231EB7 /* CommentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1EC138121A5BB9E600231EB7 /* CommentVC.xib */; };
 		E1CAE6F91A593BE000784DFD /* GBVersionTracking.m in Sources */ = {isa = PBXBuildFile; fileRef = E1CAE6F81A593BE000784DFD /* GBVersionTracking.m */; };
@@ -62,6 +64,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E69D8B71A5D0F810071FD78 /* CommentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentCell.h; sourceTree = "<group>"; };
+		1E69D8B81A5D0F810071FD78 /* CommentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentCell.m; sourceTree = "<group>"; };
+		1E69D8B91A5D0F810071FD78 /* CommentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 		1EC138101A5BB9E600231EB7 /* CommentVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentVC.h; sourceTree = "<group>"; };
 		1EC138111A5BB9E600231EB7 /* CommentVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentVC.m; sourceTree = "<group>"; };
 		1EC138121A5BB9E600231EB7 /* CommentVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommentVC.xib; sourceTree = "<group>"; };
@@ -192,6 +197,9 @@
 				1EC138101A5BB9E600231EB7 /* CommentVC.h */,
 				1EC138111A5BB9E600231EB7 /* CommentVC.m */,
 				1EC138121A5BB9E600231EB7 /* CommentVC.xib */,
+				1E69D8B71A5D0F810071FD78 /* CommentCell.h */,
+				1E69D8B81A5D0F810071FD78 /* CommentCell.m */,
+				1E69D8B91A5D0F810071FD78 /* CommentCell.xib */,
 			);
 			name = Comment;
 			sourceTree = "<group>";
@@ -472,6 +480,7 @@
 				E42AB9691A5680240004E1E8 /* Main.storyboard in Resources */,
 				E46564A11A5C2E9300419FC2 /* NewsHeadTableViewCell.xib in Resources */,
 				E4D3F11E1A597C2300B3A0A1 /* DS-DIGIB.TTF in Resources */,
+				1E69D8BB1A5D0F810071FD78 /* CommentCell.xib in Resources */,
 				E42AB96E1A5680240004E1E8 /* LaunchScreen.xib in Resources */,
 				E4D3F13B1A597DF700B3A0A1 /* topic_news.json in Resources */,
 				E42AB96B1A5680240004E1E8 /* Images.xcassets in Resources */,
@@ -514,6 +523,7 @@
 				E42AB95D1A5680240004E1E8 /* main.m in Sources */,
 				E42AB9B51A5684D50004E1E8 /* UIDevice+WTRequestCenter.m in Sources */,
 				E4D3F1331A597CA600B3A0A1 /* NewsTableViewCell.m in Sources */,
+				1E69D8BA1A5D0F810071FD78 /* CommentCell.m in Sources */,
 				E42AB9BD1A5684D50004E1E8 /* WTRequestCenter.m in Sources */,
 				E42AB9BB1A5684D50004E1E8 /* WTImageViewer.m in Sources */,
 				E42AB9B41A5684D50004E1E8 /* UIColor+WTRequestCenter.m in Sources */,
