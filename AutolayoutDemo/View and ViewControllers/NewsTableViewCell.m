@@ -54,6 +54,12 @@
     _newsContent.text = digest;
     
     NSNumber *replyCount = [_newsData valueForKey:@"replyCount"];
+    if ([replyCount isEqual:[NSNull null]]) {
+        _numberOfReplyLabel.hidden = YES;
+    }else
+    {
+        _numberOfReplyLabel.hidden = NO;
+    }
     _numberOfReplyLabel.text = [NSString stringWithFormat:@"%@跟帖",replyCount];
     
     
