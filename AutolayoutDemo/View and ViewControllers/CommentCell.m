@@ -65,6 +65,7 @@
             replyLabel.backgroundColor = [UIColor clearColor];
             [view addSubview:replyLabel];
             [self.contentView addSubview:view];
+            [self.contentView sendSubviewToBack:view];
             commentLabelY = commentLabelY+rect.size.height+3+20;
         }else{
                 //评论
