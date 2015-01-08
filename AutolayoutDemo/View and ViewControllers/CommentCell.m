@@ -40,7 +40,7 @@
     for (int i = 0; i<comArr.count; i++) {
         NSDictionary *comment = [[dic allValues] objectAtIndex:comArr.count-1-i];
         NSString *commentText = [comment objectForKey:@"b"];
-        NSLog(@"%@",commentText);
+            //NSLog(@"%@",commentText);
         if (i<comArr.count-1&&comArr.count>1) {
                 //回复
             int thisWidth = SCREEN_WIDTH-16-6*(comArr.count-i);
@@ -76,7 +76,7 @@
             commentLabel.font = [UIFont systemFontOfSize:16];
             commentLabel.text = commentText;
             [self.contentView addSubview:commentLabel];
-            if ([comment objectForKey:@"timg"]) {
+            if ([comment objectForKey:@"timg"]&&![[comment objectForKey:@"timg"] isEqual:[NSNull null]]) {
                 [self.headImageView setImageWithURL:[comment objectForKey:@"timg"]];
             }else{
                 self.headImageView.image = [UIImage imageNamed:@"comment_profile_mars"];

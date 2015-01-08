@@ -31,7 +31,7 @@
         //NSLog(@"%@",[_articleInfo objectForKey:@"source"]);
         //请求数据，先尝试从news_guonei8_bbs请求；
     NSString *urlString = [NSString stringWithFormat:@"http://comment.api.163.com/api/json/post/list/new/hot/news_guonei8_bbs/%@/0/10/10/2/2",[_articleInfo objectForKey:@"docid"]];
-    NSLog(@"%@",urlString);
+        //NSLog(@"%@",urlString);
     [WTRequestCenter getWithURL:urlString parameters:nil finished:^(NSURLResponse *response, NSData *data) {
         NSString *str = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
         NSDictionary *dic = [WTRequestCenter JSONObjectWithData:data];
