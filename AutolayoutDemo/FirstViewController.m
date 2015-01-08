@@ -77,8 +77,10 @@
 -(void)configView
 {
 //    self.title = @"网易";
-    
-    
+//    self.navigationController.hidesBarsOnTap = YES;
+    if ([UIDevice systemVersion]>=7.0) {
+        self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+    }
     
     
     UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
