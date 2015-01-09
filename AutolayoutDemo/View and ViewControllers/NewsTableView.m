@@ -244,6 +244,9 @@ static NSInteger pageSize = 20;
            selectArticleWithInfo:dict];
 //    NSLog(@"%@",dict);
     
+    
+    [tableView deselectRowAtIndexPath:indexPath
+                             animated:YES];
 //    [self.delegate newsTableView:self
 //            selectArticleWithtid:<#(NSString *)#>]
 }
