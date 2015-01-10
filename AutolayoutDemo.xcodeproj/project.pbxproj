@@ -39,6 +39,10 @@
 		E42AB9C01A5684D50004E1E8 /* WTURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E42AB9B01A5684D50004E1E8 /* WTURLSessionManager.m */; };
 		E46564A01A5C2E9300419FC2 /* NewsHeadTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E465649E1A5C2E9300419FC2 /* NewsHeadTableViewCell.m */; };
 		E46564A11A5C2E9300419FC2 /* NewsHeadTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E465649F1A5C2E9300419FC2 /* NewsHeadTableViewCell.xib */; };
+		E4B8FA261A617632008C1D9A /* AtlasViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B8FA241A617632008C1D9A /* AtlasViewController.m */; };
+		E4B8FA271A617632008C1D9A /* AtlasViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B8FA251A617632008C1D9A /* AtlasViewController.xib */; };
+		E4B8FA2B1A617673008C1D9A /* NormalNewDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = E4B8FA291A617673008C1D9A /* NormalNewDetailVC.m */; };
+		E4B8FA2C1A617673008C1D9A /* NormalNewDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4B8FA2A1A617673008C1D9A /* NormalNewDetailVC.xib */; };
 		E4D3F11D1A597C2300B3A0A1 /* DS-DIGI.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F1191A597C2300B3A0A1 /* DS-DIGI.TTF */; };
 		E4D3F11E1A597C2300B3A0A1 /* DS-DIGIB.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11A1A597C2300B3A0A1 /* DS-DIGIB.TTF */; };
 		E4D3F11F1A597C2300B3A0A1 /* lijinheiW8.TTF in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F11B1A597C2300B3A0A1 /* lijinheiW8.TTF */; };
@@ -127,6 +131,12 @@
 		E465649D1A5C2E9300419FC2 /* NewsHeadTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewsHeadTableViewCell.h; sourceTree = "<group>"; };
 		E465649E1A5C2E9300419FC2 /* NewsHeadTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewsHeadTableViewCell.m; sourceTree = "<group>"; };
 		E465649F1A5C2E9300419FC2 /* NewsHeadTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewsHeadTableViewCell.xib; sourceTree = "<group>"; };
+		E4B8FA231A617632008C1D9A /* AtlasViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AtlasViewController.h; sourceTree = "<group>"; };
+		E4B8FA241A617632008C1D9A /* AtlasViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AtlasViewController.m; sourceTree = "<group>"; };
+		E4B8FA251A617632008C1D9A /* AtlasViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AtlasViewController.xib; sourceTree = "<group>"; };
+		E4B8FA281A617673008C1D9A /* NormalNewDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NormalNewDetailVC.h; sourceTree = "<group>"; };
+		E4B8FA291A617673008C1D9A /* NormalNewDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NormalNewDetailVC.m; sourceTree = "<group>"; };
+		E4B8FA2A1A617673008C1D9A /* NormalNewDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NormalNewDetailVC.xib; sourceTree = "<group>"; };
 		E4D3F1191A597C2300B3A0A1 /* DS-DIGI.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGI.TTF"; sourceTree = "<group>"; };
 		E4D3F11A1A597C2300B3A0A1 /* DS-DIGIB.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = "DS-DIGIB.TTF"; sourceTree = "<group>"; };
 		E4D3F11B1A597C2300B3A0A1 /* lijinheiW8.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = lijinheiW8.TTF; sourceTree = "<group>"; };
@@ -187,6 +197,12 @@
 			children = (
 				E4D3F1261A597CA600B3A0A1 /* NewsDetailViewController.h */,
 				E4D3F1271A597CA600B3A0A1 /* NewsDetailViewController.m */,
+				E4B8FA231A617632008C1D9A /* AtlasViewController.h */,
+				E4B8FA241A617632008C1D9A /* AtlasViewController.m */,
+				E4B8FA251A617632008C1D9A /* AtlasViewController.xib */,
+				E4B8FA281A617673008C1D9A /* NormalNewDetailVC.h */,
+				E4B8FA291A617673008C1D9A /* NormalNewDetailVC.m */,
+				E4B8FA2A1A617673008C1D9A /* NormalNewDetailVC.xib */,
 			);
 			name = NewsDetail;
 			sourceTree = "<group>";
@@ -478,6 +494,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E42AB9691A5680240004E1E8 /* Main.storyboard in Resources */,
+				E4B8FA271A617632008C1D9A /* AtlasViewController.xib in Resources */,
 				E46564A11A5C2E9300419FC2 /* NewsHeadTableViewCell.xib in Resources */,
 				E4D3F11E1A597C2300B3A0A1 /* DS-DIGIB.TTF in Resources */,
 				1E69D8BB1A5D0F810071FD78 /* CommentCell.xib in Resources */,
@@ -485,6 +502,7 @@
 				E4D3F13B1A597DF700B3A0A1 /* topic_news.json in Resources */,
 				E42AB96B1A5680240004E1E8 /* Images.xcassets in Resources */,
 				E4D3F11F1A597C2300B3A0A1 /* lijinheiW8.TTF in Resources */,
+				E4B8FA2C1A617673008C1D9A /* NormalNewDetailVC.xib in Resources */,
 				E4D3F11D1A597C2300B3A0A1 /* DS-DIGI.TTF in Resources */,
 				E4D3F1341A597CA600B3A0A1 /* NewsTableViewCell.xib in Resources */,
 				1EC138141A5BB9E600231EB7 /* CommentVC.xib in Resources */,
@@ -510,11 +528,13 @@
 				E42AB9BE1A5684D50004E1E8 /* WTURLRequestOperation.m in Sources */,
 				1EC138131A5BB9E600231EB7 /* CommentVC.m in Sources */,
 				E4D3F1321A597CA600B3A0A1 /* NewsTableView.m in Sources */,
+				E4B8FA261A617632008C1D9A /* AtlasViewController.m in Sources */,
 				E42AB9B71A5684D50004E1E8 /* UIImageView+WTRequestCenter.m in Sources */,
 				E42AB9B91A5684D50004E1E8 /* UIWebView+WTRequestCenter.m in Sources */,
 				E42AB9661A5680240004E1E8 /* SecondViewController.m in Sources */,
 				E42AB9BA1A5684D50004E1E8 /* WTDataSaver.m in Sources */,
 				E42AB9B81A5684D50004E1E8 /* UIScreen+WTRequestCenter.m in Sources */,
+				E4B8FA2B1A617673008C1D9A /* NormalNewDetailVC.m in Sources */,
 				E42AB9601A5680240004E1E8 /* AppDelegate.m in Sources */,
 				E4D3F1351A597CA600B3A0A1 /* NewsTitleCell.m in Sources */,
 				E42AB9631A5680240004E1E8 /* FirstViewController.m in Sources */,

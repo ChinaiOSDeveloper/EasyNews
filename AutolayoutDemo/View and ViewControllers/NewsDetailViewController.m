@@ -13,11 +13,10 @@
 {
 
 }
-//读取的文章详细数据
-@property (nonatomic,strong) NSDictionary *newsData;
 
 
-@property (weak, nonatomic) IBOutlet UIWebView *myWebView;
+
+
 
 
 @end
@@ -35,8 +34,6 @@
 {
     [super viewWillAppear:animated];
     
-//    http://c.m.163.com/nc/article/AEVCOFPO0001124J/full.html
-    
     [self loadData];
     
     
@@ -52,30 +49,34 @@
                              option:WTRequestCenterCachePolicyCacheAndWeb
                            finished:^(NSURLResponse *response, NSData *data)
         {
-            NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
+            [self useData:data];
 
-            dict = [dict valueForKey:docid];
-            
-            NSNumber *replyCount = [dict valueForKey:@"replyCount"];
-            NSString *replyCountString = [NSString stringWithFormat:@"%@评论",replyCount];
-            
-            UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:replyCountString
-                                                                     style:UIBarButtonItemStylePlain
-                                                                    target:self
-                                                                    action:@selector(commentButtonPressed:)];
-            self.navigationItem.rightBarButtonItem = item;
-            
-            
-            
-            NSString *body = [dict valueForKey:@"body"];
-            [_myWebView loadHTMLString:body baseURL:nil];
-            
-           }
+        }
                              failed:^(NSURLResponse *response, NSError *error)
-            {
+        {
                                
         }];
     }
+
+}
+
+
+-(void)useData:(NSData*)data
+{
+    
+    NSString *docid = [_articleInfo valueForKey:@"docid"];
+    NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
+    dict = [dict valueForKey:docid];
+    
+    NSNumber *replyCount = [dict valueForKey:@"replyCount"];
+    NSString *replyCountString = [NSString stringWithFormat:@"%@评论",replyCount];
+    
+    UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:replyCountString
+                                                             style:UIBarButtonItemStylePlain
+                                                            target:self
+                                                            action:@selector(commentButtonPressed:)];
+    self.navigationItem.rightBarButtonItem = item;
+    
 
 }
 

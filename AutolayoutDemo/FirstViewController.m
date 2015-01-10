@@ -13,6 +13,9 @@
 #import "NewsTitleCell.h"
 #import "NewsTableView.h"
 #import "UIKit+WTRequestCenter.h"
+
+
+#import "NormalNewDetailVC.h"
 @interface FirstViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NewsTableViewDelegate,UIScrollViewDelegate>
 {
 
@@ -272,7 +275,14 @@
 #pragma mark - NewsTableViewDelegate
 -(void)newsTableView:(NewsTableView*)tableView selectArticleWithInfo:(NSDictionary*)info
 {
+    /*
     NewsDetailViewController *vc = [self.storyboard instantiateViewControllerWithIdentifier:@"NewsDetailVC"];
+    vc.articleInfo = info;
+    [self.navigationController pushViewController:vc
+                                         animated:YES];
+     */
+    
+    NormalNewDetailVC *vc = [[NormalNewDetailVC alloc] init];
     vc.articleInfo = info;
     [self.navigationController pushViewController:vc
                                          animated:YES];
