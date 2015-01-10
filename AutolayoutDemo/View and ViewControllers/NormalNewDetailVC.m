@@ -17,7 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    _myWebView.hidden = YES;
     
 }
 
@@ -36,6 +36,7 @@
     NSString *body = [dict valueForKey:@"body"];
     dict = [dict valueForKey:docid];
     
+    _myWebView.hidden = NO;
     [_myWebView loadHTMLString:body baseURL:nil];
     
 }
