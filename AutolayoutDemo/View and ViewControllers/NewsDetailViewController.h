@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface NewsDetailViewController : UIViewController
-//传入的文章基本数据
-@property (nonatomic,strong) NSDictionary *articleInfo;
 
-//从服务器访问的的文章详细数据
-@property (nonatomic,strong) NSDictionary *newsData;
+@property (nonatomic,strong) NSDictionary *articleInfo; //传入的文章基本数据
+
+
+@property (nonatomic,strong) NSDictionary *newsData; //从服务器访问的的文章详细数据
+
 -(void)useData:(NSData*)data;
 @end
