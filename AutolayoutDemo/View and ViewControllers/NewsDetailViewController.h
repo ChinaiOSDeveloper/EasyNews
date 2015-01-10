@@ -15,5 +15,9 @@
 
 @property (nonatomic,strong) NSDictionary *newsData; //从服务器访问的的文章详细数据
 
+
+/*!
+    使用数据
+ */
 -(void)useData;
 @end

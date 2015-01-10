@@ -47,6 +47,8 @@
 {
     [super useData];
     
+    
+    
     NSString *docid = [self.articleInfo valueForKey:@"docid"];
     NSDictionary *dict = self.newsData;
     NSString *body = [dict valueForKey:@"body"];

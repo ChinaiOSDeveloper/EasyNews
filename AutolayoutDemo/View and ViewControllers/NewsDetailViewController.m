@@ -67,12 +67,17 @@
 }
 
 
+
 -(void)useData
 {
     
+    
+    
+//    设置右上角的评论按钮
     NSDictionary *dict = self.newsData;
     NSNumber *replyCount = [dict valueForKey:@"replyCount"];
     NSString *replyCountString = [NSString stringWithFormat:@"%@评论",replyCount];
+    
     
     UIBarButtonItem *item = [[UIBarButtonItem alloc] initWithTitle:replyCountString
                                                              style:UIBarButtonItemStylePlain
