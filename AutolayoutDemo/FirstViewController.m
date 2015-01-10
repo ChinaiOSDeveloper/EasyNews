@@ -48,6 +48,13 @@
     // Do any additional setup after loading the view, typically from a nib.
     [self configModel];
     [self configView];
+    
+    /*
+    [self.navigationController addObserver:self
+                                forKeyPath:@"isNavigationBarHidden"
+                                   options:NSKeyValueObservingOptionNew
+                                   context:@"isNavigationBarHidden"];
+     */
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -75,8 +82,19 @@
 -(void)configModel
 {
     self.dataList = nil;
+    
+    
+//    navigationBarHidden
+
 }
 #pragma mark - View
+
+-(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
+{
+    if (context == @"isNavigationBarHidden") {
+        NSLog(@"xxx");
+    }
+}
 -(void)configView
 {
 //    self.title = @"网易";
@@ -286,10 +304,20 @@
     vc.articleInfo = info;
     [self.navigationController pushViewController:vc
                                          animated:YES];
+
 }
 
 
 #pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    /*
+    if (scrollView == _newsCollectionView) {
+        [self.navigationController setNavigationBarHidden:YES
+                                                 animated:YES];
+    }
+     */
+}
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     
@@ -297,6 +325,11 @@
         CGPoint contentOffset = scrollView.contentOffset;
         CGFloat width = CGRectGetWidth(self.view.bounds);
         NSInteger page = contentOffset.x/width;
+        
+        /*
+        [self.navigationController setNavigationBarHidden:NO
+                                                 animated:YES];
+         */
         
         NSIndexPath *indexPath = [NSIndexPath indexPathForItem:page
                                                      inSection:0];
