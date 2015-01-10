@@ -8,7 +8,13 @@
 
 #import "AtlasViewController.h"
 
-@interface AtlasViewController ()
+@interface AtlasViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+{
+    
+}
+
+@property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
+@property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *myCollectionViewFlowLayout;
 
 @end
 
@@ -17,7 +23,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
+    _myCollectionViewFlowLayout.itemSize = self.view.bounds.size;
     
 }
 
@@ -30,9 +36,24 @@
 -(void)useData
 {
     [super useData];
-    
+    [_myCollectionView reloadData];
 }
 
+#pragma mark - UICollectionViewDataSource
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return 10;
+}
+
+// The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
+
+#pragma mark - UICollectionViewDelegate
+
+#pragma mark - UICollectionViewDelegateFlowLayout
 /*
 #pragma mark - Navigation
 

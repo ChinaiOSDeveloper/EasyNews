@@ -8,6 +8,7 @@
 
 #import "NormalNewDetailVC.h"
 #import "WTNetWork.h"
+#import "UIKit+WTRequestCenter.h"
 @interface NormalNewDetailVC () <UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate>
 {
     CGFloat _webViewHeight;
@@ -46,7 +47,6 @@
 -(void)useData
 {
     [super useData];
-    
     
     
     NSString *docid = [self.articleInfo valueForKey:@"docid"];
@@ -153,7 +153,8 @@
 
 - (void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
 {
-    NSLog(@"%@",error);
+//    NSLog(@"%@",error);
+    [UIAlertView showAlertWithMessage:@"加载失败"];
 }
 /*
 #pragma mark - Navigation
