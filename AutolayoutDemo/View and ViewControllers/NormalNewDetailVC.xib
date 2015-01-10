@@ -7,7 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NormalNewDetailVC">
             <connections>
-                <outlet property="myWebView" destination="2Ef-oh-Sct" id="6qE-pc-y1C"/>
+                <outlet property="myTableView" destination="0KN-fE-I61" id="cMU-Kc-fqa"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -16,17 +16,21 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ef-oh-Sct">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="0KN-fE-I61">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </webView>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="KfQ-Q8-26O"/>
+                        <outlet property="delegate" destination="-1" id="gfQ-d2-V1e"/>
+                    </connections>
+                </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="2Ef-oh-Sct" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ghw-un-mci"/>
-                <constraint firstItem="2Ef-oh-Sct" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="oO7-tW-88x"/>
-                <constraint firstAttribute="trailing" secondItem="2Ef-oh-Sct" secondAttribute="trailing" id="rMu-EQ-sRb"/>
-                <constraint firstAttribute="bottom" secondItem="2Ef-oh-Sct" secondAttribute="bottom" id="wel-0w-7f8"/>
+                <constraint firstAttribute="trailing" secondItem="0KN-fE-I61" secondAttribute="trailing" id="dYq-NY-nFa"/>
+                <constraint firstItem="0KN-fE-I61" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ftR-Tl-dhg"/>
+                <constraint firstItem="0KN-fE-I61" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="rPP-rg-Ps4"/>
+                <constraint firstAttribute="bottom" secondItem="0KN-fE-I61" secondAttribute="bottom" id="xOx-H6-4cI"/>
             </constraints>
         </view>
     </objects>

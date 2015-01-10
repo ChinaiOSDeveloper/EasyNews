@@ -50,8 +50,13 @@
                              option:WTRequestCenterCachePolicyCacheAndWeb
                            finished:^(NSURLResponse *response, NSData *data)
         {
-            [self useData:data];
-
+            
+            NSString *docid = [_articleInfo valueForKey:@"docid"];
+            NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
+            dict = [dict valueForKey:docid];
+            self.newsData = dict;
+            [self useData];
+            
         }
                              failed:^(NSURLResponse *response, NSError *error)
         {
@@ -62,13 +67,10 @@
 }
 
 
--(void)useData:(NSData*)data
+-(void)useData
 {
     
-    NSString *docid = [_articleInfo valueForKey:@"docid"];
-    NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
-    dict = [dict valueForKey:docid];
-    
+    NSDictionary *dict = self.newsData;
     NSNumber *replyCount = [dict valueForKey:@"replyCount"];
     NSString *replyCountString = [NSString stringWithFormat:@"%@评论",replyCount];
     

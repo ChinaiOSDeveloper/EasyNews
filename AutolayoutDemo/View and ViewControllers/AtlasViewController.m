@@ -25,9 +25,9 @@
 }
 
 
--(void)useData:(NSData*)data
+-(void)useData
 {
-    [super useData:data];
+    [super useData];
     
 }
 
