@@ -13,7 +13,7 @@
 #import "NewsTitleCell.h"
 #import "NewsTableView.h"
 #import "UIKit+WTRequestCenter.h"
-
+#import "AtlasViewController.h"
 
 #import "NormalNewDetailVC.h"
 @interface FirstViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,NewsTableViewDelegate,UIScrollViewDelegate>
@@ -300,7 +300,14 @@
                                          animated:YES];
      */
     
-    NormalNewDetailVC *vc = [[NormalNewDetailVC alloc] init];
+    NewsDetailViewController *vc = nil;
+    if ([info valueForKey:@"alias"]) {
+        vc = [[AtlasViewController alloc] init];
+    }else
+    {
+        vc = [[NormalNewDetailVC alloc] init];
+    }
+    
     vc.articleInfo = info;
     [self.navigationController pushViewController:vc
                                          animated:YES];

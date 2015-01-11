@@ -55,6 +55,7 @@
 		E4D3F1351A597CA600B3A0A1 /* NewsTitleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D3F12E1A597CA600B3A0A1 /* NewsTitleCell.m */; };
 		E4D3F1381A597CB200B3A0A1 /* NewsCenter.m in Sources */ = {isa = PBXBuildFile; fileRef = E4D3F1371A597CB200B3A0A1 /* NewsCenter.m */; };
 		E4D3F13B1A597DF700B3A0A1 /* topic_news.json in Resources */ = {isa = PBXBuildFile; fileRef = E4D3F13A1A597DF700B3A0A1 /* topic_news.json */; };
+		E4EDB2CB1A62025D0076ECB8 /* File in Resources */ = {isa = PBXBuildFile; fileRef = E4EDB2CA1A62025D0076ECB8 /* File */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -155,6 +156,7 @@
 		E4D3F1361A597CB200B3A0A1 /* NewsCenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NewsCenter.h; path = Model/NewsCenter.h; sourceTree = "<group>"; };
 		E4D3F1371A597CB200B3A0A1 /* NewsCenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NewsCenter.m; path = Model/NewsCenter.m; sourceTree = "<group>"; };
 		E4D3F13A1A597DF700B3A0A1 /* topic_news.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = topic_news.json; sourceTree = "<group>"; };
+		E4EDB2CA1A62025D0076ECB8 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,6 +261,7 @@
 		E42AB9591A5680240004E1E8 /* AutolayoutDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E4EDB2CA1A62025D0076ECB8 /* File */,
 				E4D3F1211A597C6A00B3A0A1 /* View and ViewControllers */,
 				E4D3F1171A597C0400B3A0A1 /* Resource */,
 				E42AB9C91A5695840004E1E8 /* Model */,
@@ -507,6 +510,7 @@
 				E4D3F1341A597CA600B3A0A1 /* NewsTableViewCell.xib in Resources */,
 				1EC138141A5BB9E600231EB7 /* CommentVC.xib in Resources */,
 				E4D3F1201A597C2300B3A0A1 /* StencilStd.ttf in Resources */,
+				E4EDB2CB1A62025D0076ECB8 /* File in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
