@@ -60,7 +60,10 @@ static NSString *localColumnName = @"NewsCenter local column name";
 
 
 
-
+/*
+// 图集的新闻接口
+ http://c.m.163.com/photo/api/set/0096/55411.json
+ */
 
 
 /*
