@@ -43,22 +43,22 @@
             //NSLog(@"%@",commentText);
         if (i<comArr.count-1&&comArr.count>1) {
                 //回复
-            int thisWidth = SCREEN_WIDTH-16-6*(comArr.count-i);
-            int thisXPoint = 8+3*((int)comArr.count-i);
+            int thisWidth = SCREEN_WIDTH-16-6*(comArr.count-i-1);
+            int thisXPoint = 8+3*((int)comArr.count-i-1);
             CGRect rect = [commentText boundingRectWithSize:CGSizeMake(thisWidth, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil];
-            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(thisXPoint, firstLabelY, thisWidth, rect.size.height+20)];
+            UIView *view = [[UIView alloc] initWithFrame:CGRectMake(thisXPoint, firstLabelY, thisWidth, rect.size.height+20+commentLabelY-66)];
             view.layer.borderColor = [[UIColor blackColor] CGColor];
             view.layer.borderWidth = 1;
             view.tag = 11;
             view.backgroundColor = [UIColor yellowColor];
             
-            UILabel *replyNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, view.frame.size.width, 20)];
+            UILabel *replyNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, commentLabelY-66, view.frame.size.width, 20)];
             replyNameLabel.textColor = [UIColor blueColor];
             replyNameLabel.text = [comment objectForKey:@"n"]?[comment objectForKey:@"n"]:@"火影网友";
             replyNameLabel.backgroundColor = [UIColor clearColor];
             [view addSubview:replyNameLabel];
             
-            UILabel *replyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20, view.frame.size.width, rect.size.height)];
+            UILabel *replyLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 20+commentLabelY-66, view.frame.size.width, rect.size.height)];
             replyLabel.numberOfLines = 0;
             replyLabel.font = [UIFont systemFontOfSize:16];
             replyLabel.text = [NSString stringWithFormat:@"%@",commentText];
@@ -67,6 +67,7 @@
             [self.contentView addSubview:view];
             [self.contentView sendSubviewToBack:view];
             commentLabelY = commentLabelY+rect.size.height+3+20;
+            firstLabelY -= 3;
         }else{
                 //评论
             CGRect rect = [commentText boundingRectWithSize:CGSizeMake(SCREEN_WIDTH-16, 0) options:NSStringDrawingUsesLineFragmentOrigin|NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil];
