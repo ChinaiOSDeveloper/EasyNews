@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, NewsType) {
+    NewsTypeNormal,     //正常新闻
+    NewsTypeAtlas       //图集新闻
+};
+
 @interface NewsDetailViewController : UIViewController
 
 @property (nonatomic,strong) NSDictionary *articleInfo; //传入的文章基本数据

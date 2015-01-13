@@ -1,9 +1,9 @@
-Printing description of info:
+Printing description of self->_articleInfo:
 {
 alias = "Top News";
 cid = C1348646712614;
 digest = "";
-docid = "9IG74V5H00963VRO_AFLRGK47hzwangxuefeiupdateDoc";
+docid = "9IG74V5H00963VRO_AFS0CCOBhong_yuupdateDoc";
 ename = iosnews;
 hasAD = 1;
 hasCover = 0;
@@ -12,41 +12,42 @@ hasIcon = 1;
 hasImg = 1;
 imgextra =     (
 {
-imgsrc = "http://img4.cache.netease.com/3g/2015/1/11/2015011108451449589.jpg";
+imgsrc = "http://img2.cache.netease.com/3g/2015/1/13/201501131805424420c.jpg";
 },
 {
-imgsrc = "http://img3.cache.netease.com/3g/2015/1/11/2015011108452197f2e.jpg";
+imgsrc = "http://img3.cache.netease.com/3g/2015/1/13/2015011318054440db9.jpg";
 }
 );
-imgsrc = "http://img4.cache.netease.com/3g/2015/1/11/20150111084502e6e6c.jpg";
-lmodify = "2015-01-11 08:43:30";
+imgsrc = "http://img3.cache.netease.com/3g/2015/1/13/2015011318471907905.jpg";
+lmodify = "2015-01-13 18:04:01";
 order = 1;
-photosetID = "54GI0096|55329";
-priority = 250;
-ptime = "2015-01-11 08:43:30";
-replyCount = 0;
-skipID = "54GI0096|55329";
+photosetID = "54GI0096|55534";
+priority = 240;
+ptime = "2015-01-13 18:04:01";
+replyCount = 2204;
+skipID = "54GI0096|55534";
 skipType = photoset;
 template = manual;
-title = "\U5e7f\U4e1c\U4f5b\U5c71\U73af\U536b\U5973\U5de5\U5e26\U5b69\U5b50\U4e0a\U73ed";
+title = "\U5c71\U4e1c\U7279\U8b66\U6301\U67aa\U56f4\U5835\U9690\U853d\U8d4c\U7a9d";
 tname = "\U5934\U6761";
 }
 
-Printing description of info:
+
+
+------------------------------------------------------------------------------------------------------
 {
 adTitle = "\U7f51\U6613\U65b0\U95fb\U6709\U6001\U5ea6\Uff01";
-digest = "\U6279\U5170\U5dde\U77f3\U5316\U4e0d\U5c65\U884c\U793e\U4f1a\U8d23\U4efb\Uff0c\U8981\U6c42\U5176\U5411\U5170\U5dde\U4eba\U6c11\U9053\U6b49\U3002";
-docid = AFL325TR0001124J;
-imgsrc = "http://img1.cache.netease.com/3g/2015/1/11/20150111014037fc30b.jpg";
-lmodify = "2015-01-11 05:35:09";
-priority = 100;
-ptime = "2015-01-11 01:36:11";
-replyCount = 18944;
-source = "\U4e2d\U56fd\U5e7f\U64ad\U7f51";
+digest = "\U4ece\U67d0\U79cd\U610f\U4e49\U4e0a\U8bb2\Uff0c\U7535\U7f51\U516c\U53f8\U662f\U5bf9\U5168\U4f53\U56fd\U6c11\U9690\U5f62\"\U5f81\U7a0e\"\U3002";
+docid = AFRLHLEI002524SO;
+imgsrc = "http://img6.cache.netease.com/3g/2015/1/13/20150113145929a9dab.jpg";
+lmodify = "2015-01-13 17:43:33";
+priority = 198;
+ptime = "2015-01-13 14:54:39";
+replyCount = 14993;
+source = "\U56fd\U4f01";
 subtitle = "";
-timeConsuming = "1\U5206\U949f";
-title = "\U5170\U5dde\U65a5\U8d23\U4e2d\U77f3\U6cb9\U4e0b\U5c5e\U516c\U53f8\U8fdd\U6cd5";
-url = "http://3g.163.com/news/15/0111/01/AFL325TR0001124J.html";
-"url_3w" = "http://news.163.com/15/0111/01/AFL325TR0001124J.html";
+timeConsuming = "2\U5206\U949f";
+title = "\U7535\U7f51\U516c\U53f8\U66b4\U5229\U88ab\U6307\U8fdc\U8d85\U4e09\U6876\U6cb9";
+url = "http://3g.163.com/money/15/0113/14/AFRLHLEI002524SO.html";
+"url_3w" = "http://money.163.com/15/0113/14/AFRLHLEI002524SO.html";
 }
-

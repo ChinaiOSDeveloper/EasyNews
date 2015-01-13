@@ -7,7 +7,7 @@
 //
 
 #import "AtlasViewController.h"
-
+#import "NewsImageCollectionViewCell.h"
 @interface AtlasViewController () <UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 {
     
@@ -15,7 +15,7 @@
 
 @property (weak, nonatomic) IBOutlet UICollectionView *myCollectionView;
 @property (weak, nonatomic) IBOutlet UICollectionViewFlowLayout *myCollectionViewFlowLayout;
-
+@property (strong, nonatomic) NSArray *photos;
 @end
 
 @implementation AtlasViewController
@@ -24,6 +24,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     _myCollectionViewFlowLayout.itemSize = self.view.bounds.size;
+    
+    
+    UINib *nib = [UINib nibWithNibName:@"NewsImageCollectionViewCell"
+                                bundle:nil];
+    [_myCollectionView registerNib:nib
+        forCellWithReuseIdentifier:@"NewsImageCollectionViewCell"];
     
 }
 
@@ -36,19 +42,28 @@
 -(void)useData
 {
     [super useData];
+
+    NSArray *photos = [self.newsData valueForKey:@"photos"];
+    self.photos = photos;
     [_myCollectionView reloadData];
 }
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return 10;
+    return _photos.count;
 }
 
 // The cell that is returned must be retrieved from a call to -dequeueReusableCellWithReuseIdentifier:forIndexPath:
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    UICollectionViewCell *cell = nil;
+    cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"NewsImageCollectionViewCell"
+                                                     forIndexPath:indexPath];
+    NewsImageCollectionViewCell *temp = (NewsImageCollectionViewCell*)cell;
+    temp.imageInfo = _photos[indexPath.row];
+    
+    return cell;
 }
 
 #pragma mark - UICollectionViewDelegate
