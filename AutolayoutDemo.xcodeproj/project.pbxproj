@@ -202,12 +202,10 @@
 		1E4A424A1A5BAC12001577F5 /* NewsDetail */ = {
 			isa = PBXGroup;
 			children = (
-				E1785E7A1A65520900837F7C /* 图集 */,
 				E4D3F1261A597CA600B3A0A1 /* NewsDetailViewController.h */,
 				E4D3F1271A597CA600B3A0A1 /* NewsDetailViewController.m */,
-				E4B8FA281A617673008C1D9A /* NormalNewDetailVC.h */,
-				E4B8FA291A617673008C1D9A /* NormalNewDetailVC.m */,
-				E4B8FA2A1A617673008C1D9A /* NormalNewDetailVC.xib */,
+				E1785E7B1A65602B00837F7C /* 普通新闻 */,
+				E1785E7A1A65520900837F7C /* 图集 */,
 			);
 			name = NewsDetail;
 			sourceTree = "<group>";
@@ -236,6 +234,16 @@
 				E1785E771A654DA800837F7C /* NewsImageCollectionViewCell.xib */,
 			);
 			name = "图集";
+			sourceTree = "<group>";
+		};
+		E1785E7B1A65602B00837F7C /* 普通新闻 */ = {
+			isa = PBXGroup;
+			children = (
+				E4B8FA281A617673008C1D9A /* NormalNewDetailVC.h */,
+				E4B8FA291A617673008C1D9A /* NormalNewDetailVC.m */,
+				E4B8FA2A1A617673008C1D9A /* NormalNewDetailVC.xib */,
+			);
+			name = "普通新闻";
 			sourceTree = "<group>";
 		};
 		E1CAE6F61A593BE000784DFD /* GBVersionTracking */ = {

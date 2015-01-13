@@ -52,7 +52,7 @@
 //        新闻ID
         NSString *docid = [_articleInfo valueForKey:@"docid"];
         NSString *url;
-        if ([_articleInfo valueForKey:@"hasHead"]) {
+        if ([_articleInfo valueForKey:@"photosetID"]) {
             type = NewsTypeAtlas;
 //            54GI0096|55534   http://c.m.163.com/photo/api/set/0096/54GI0096|55534.json
 //            http://c.m.163.com/photo/api/set/0096/55411.json

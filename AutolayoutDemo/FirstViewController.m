@@ -301,7 +301,7 @@
      */
     
     NewsDetailViewController *vc = nil;
-    if ([info valueForKey:@"alias"]) {
+    if ([info valueForKey:@"photosetID"]) {
         vc = [[AtlasViewController alloc] init];
     }else
     {
