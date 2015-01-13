@@ -8,12 +8,31 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="NewsImageCollectionViewCell">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="339" height="66"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="339" height="66"/>
+                <subviews>
+                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="omW-Ep-axH">
+                        <rect key="frame" x="0.0" y="0.0" width="339" height="66"/>
+                        <connections>
+                            <outlet property="delegate" destination="-1" id="wpc-Gc-LYH"/>
+                        </connections>
+                    </scrollView>
+                </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="omW-Ep-axH" secondAttribute="bottom" id="2vX-oA-V5M"/>
+                <constraint firstItem="omW-Ep-axH" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="fkP-mh-KZG"/>
+                <constraint firstAttribute="trailing" secondItem="omW-Ep-axH" secondAttribute="trailing" id="ogj-mK-V9a"/>
+                <constraint firstItem="omW-Ep-axH" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="y6T-Sk-0ZI"/>
+            </constraints>
+            <size key="customSize" width="339" height="66"/>
+            <connections>
+                <outlet property="imageScrollView" destination="omW-Ep-axH" id="Dxl-As-J2r"/>
+            </connections>
+            <point key="canvasLocation" x="469.5" y="413"/>
         </collectionViewCell>
     </objects>
 </document>

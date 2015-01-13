@@ -10,4 +10,8 @@
 
 @interface NewsImageCollectionViewCell : UICollectionViewCell
 @property (nonatomic,strong) NSDictionary *imageInfo;
+@property (strong, nonatomic) UIScrollView *imageScrollView;
+@property (strong, nonatomic) UIImageView *newsImageView;
+
+
 @end
