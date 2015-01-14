@@ -182,7 +182,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1E4A42491A5BAB2C001577F5 /* NewsList */ = {
+		1E4A42491A5BAB2C001577F5 /* 首页 */ = {
 			isa = PBXGroup;
 			children = (
 				E4D3F1281A597CA600B3A0A1 /* NewsTableView.h */,
@@ -196,10 +196,10 @@
 				E465649E1A5C2E9300419FC2 /* NewsHeadTableViewCell.m */,
 				E465649F1A5C2E9300419FC2 /* NewsHeadTableViewCell.xib */,
 			);
-			name = NewsList;
+			name = "首页";
 			sourceTree = "<group>";
 		};
-		1E4A424A1A5BAC12001577F5 /* NewsDetail */ = {
+		1E4A424A1A5BAC12001577F5 /* 新闻详情页 */ = {
 			isa = PBXGroup;
 			children = (
 				E4D3F1261A597CA600B3A0A1 /* NewsDetailViewController.h */,
@@ -207,10 +207,10 @@
 				E1785E7B1A65602B00837F7C /* 普通新闻 */,
 				E1785E7A1A65520900837F7C /* 图集 */,
 			);
-			name = NewsDetail;
+			name = "新闻详情页";
 			sourceTree = "<group>";
 		};
-		1EC1380F1A5BB93C00231EB7 /* Comment */ = {
+		1EC1380F1A5BB93C00231EB7 /* 评论页 */ = {
 			isa = PBXGroup;
 			children = (
 				1EC138101A5BB9E600231EB7 /* CommentVC.h */,
@@ -220,7 +220,7 @@
 				1E69D8B81A5D0F810071FD78 /* CommentCell.m */,
 				1E69D8B91A5D0F810071FD78 /* CommentCell.xib */,
 			);
-			name = Comment;
+			name = "评论页";
 			sourceTree = "<group>";
 		};
 		E1785E7A1A65520900837F7C /* 图集 */ = {
@@ -286,7 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				E4EDB2CA1A62025D0076ECB8 /* File */,
-				E4D3F1211A597C6A00B3A0A1 /* View and ViewControllers */,
+				E4D3F1211A597C6A00B3A0A1 /* 视图控制器 */,
 				E4D3F1171A597C0400B3A0A1 /* Resource */,
 				E42AB9C91A5695840004E1E8 /* Model */,
 				E42AB98B1A5684BD0004E1E8 /* Library */,
@@ -419,15 +419,16 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		E4D3F1211A597C6A00B3A0A1 /* View and ViewControllers */ = {
+		E4D3F1211A597C6A00B3A0A1 /* 视图控制器 */ = {
 			isa = PBXGroup;
 			children = (
 				E4D3F1221A597CA600B3A0A1 /* DBPictureVC.h */,
 				E4D3F1231A597CA600B3A0A1 /* DBPictureVC.m */,
-				1EC1380F1A5BB93C00231EB7 /* Comment */,
-				1E4A424A1A5BAC12001577F5 /* NewsDetail */,
-				1E4A42491A5BAB2C001577F5 /* NewsList */,
+				1EC1380F1A5BB93C00231EB7 /* 评论页 */,
+				1E4A424A1A5BAC12001577F5 /* 新闻详情页 */,
+				1E4A42491A5BAB2C001577F5 /* 首页 */,
 			);
+			name = "视图控制器";
 			path = "View and ViewControllers";
 			sourceTree = "<group>";
 		};
