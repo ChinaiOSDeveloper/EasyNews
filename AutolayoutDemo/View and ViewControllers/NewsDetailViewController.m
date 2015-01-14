@@ -43,8 +43,31 @@
 -(void)loadData
 {
     if (!_newsData) {
+        
+//        hasHead
+//        hasIcon
+        
+        NewsType type;
+        
+//        新闻ID
         NSString *docid = [_articleInfo valueForKey:@"docid"];
-        NSString *url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",docid];
+        NSString *url;
+        if ([_articleInfo valueForKey:@"photosetID"]) {
+            type = NewsTypeAtlas;
+//            54GI0096|55534   http://c.m.163.com/photo/api/set/0096/54GI0096|55534.json
+//            http://c.m.163.com/photo/api/set/0096/55411.json
+            NSString *photosetID = [_articleInfo valueForKey:@"photosetID"];
+            photosetID = [[photosetID componentsSeparatedByString:@"|"] lastObject];
+            url = [NSString stringWithFormat:@"http://c.m.163.com/photo/api/set/0096/%@.json",photosetID];
+        }else
+        {
+            type = NewsTypeNormal;
+            url = [NSString stringWithFormat:@"http://c.m.163.com/nc/article/%@/full.html",docid];
+        }
+        
+        
+        
+        
         [WTRequestCenter getWithURL:url
                          parameters:nil
                              option:WTRequestCenterCachePolicyCacheAndWeb
@@ -53,7 +76,10 @@
             
             NSString *docid = [_articleInfo valueForKey:@"docid"];
             NSDictionary *dict = [WTRequestCenter JSONObjectWithData:data];
-            dict = [dict valueForKey:docid];
+            if ([dict valueForKey:docid]) {
+                dict = [dict valueForKey:docid];
+            }
+
             self.newsData = dict;
             [self useData];
             
