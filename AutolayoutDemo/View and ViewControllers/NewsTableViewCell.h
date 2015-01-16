@@ -8,8 +8,18 @@
 
 #import <UIKit/UIKit.h>
 
+@class NewsTableViewCell;
+@protocol NewsTableViewCellDataSource <NSObject>
+-(NSString*)urlForNewsTableViewCell:(NewsTableViewCell*)cell;
+-(NSString*)titleForNewsTableViewCell:(NewsTableViewCell*)cell;
+-(NSString*)digestForNewsTableViewCell:(NewsTableViewCell*)cell;
+-(NSString*)replyCountForNewsTableViewCell:(NewsTableViewCell*)cell;
+@end
+
 @interface NewsTableViewCell : UITableViewCell
-@property (nonatomic,strong) NSDictionary *newsData;
+
+@property (nonatomic,weak) id <NewsTableViewCellDataSource> dataSource;
+
 @end
 
 

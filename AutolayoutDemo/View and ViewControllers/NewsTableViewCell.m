@@ -28,7 +28,6 @@
 -(void)prepareForReuse
 {
     [super prepareForReuse];
-    self.newsData = nil;
     _newsImage.image = nil;
     WTURLRequestOperation *operation = _newsImage.wtImageRequestOperation;
     [operation cancel];
@@ -44,6 +43,26 @@
 -(void)layoutSubviews
 {
     [super layoutSubviews];
+    
+    
+    NSString *url = [self.dataSource urlForNewsTableViewCell:self];
+    [_newsImage setImageWithURL:url];
+    
+    NSString *title = [self.dataSource titleForNewsTableViewCell:self];
+    _newsTitle.text = title;
+    
+    NSString *digest = [self.dataSource digestForNewsTableViewCell:self];
+    _newsContent.text = digest;
+    
+    NSString* replyCount = [self.dataSource replyCountForNewsTableViewCell:self];
+    if ([replyCount isEqual:[NSNull null]]) {
+        _numberOfReplyLabel.hidden = YES;
+    }else
+    {
+        _numberOfReplyLabel.hidden = NO;
+        _numberOfReplyLabel.text = [NSString stringWithFormat:@"%@跟帖",replyCount];
+    }
+/*
     NSString *imgsrc = [_newsData valueForKey:@"imgsrc"];
     [_newsImage setImageWithURL:imgsrc];
     
@@ -61,7 +80,7 @@
         _numberOfReplyLabel.hidden = NO;
     }
     _numberOfReplyLabel.text = [NSString stringWithFormat:@"%@跟帖",replyCount];
-    
+  */
     
 }
 

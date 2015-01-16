@@ -10,7 +10,7 @@
 #import "NewsTableViewCell.h"
 #import "WTNetWork.h"
 #import "NewsHeadTableViewCell.h"
-@interface NewsTableView () <UITableViewDataSource,UITableViewDelegate>
+@interface NewsTableView () <UITableViewDataSource,UITableViewDelegate,NewsTableViewCellDataSource>
 {
     UITableView *_myTableView;
     
@@ -221,7 +221,7 @@ static NSInteger pageSize = 20;
     {
         cell = [tableView dequeueReusableCellWithIdentifier:@"NewsTableViewCell"];
         NewsTableViewCell *temp = (NewsTableViewCell*)cell;
-        temp.newsData = newsInfo;
+        temp.dataSource = self;
     }
     
     
@@ -271,6 +271,40 @@ static NSInteger pageSize = 20;
             [self loadMore];
         }
     }
+}
+
+#pragma mark - NewsTableViewCellDataSource
+-(NSString*)urlForNewsTableViewCell:(NewsTableViewCell*)cell
+{
+    NSIndexPath *indexPath = [_myTableView indexPathForCell:cell];
+    NSDictionary *dict = _dataList[indexPath.row];
+    
+    NSString *result = [dict valueForKey:@"imgsrc"];
+    return result;
+}
+-(NSString*)titleForNewsTableViewCell:(NewsTableViewCell*)cell
+{
+    NSIndexPath *indexPath = [_myTableView indexPathForCell:cell];
+    NSDictionary *dict = _dataList[indexPath.row];
+    
+    NSString *result = [dict valueForKey:@"title"];
+    return result;
+}
+-(NSString*)digestForNewsTableViewCell:(NewsTableViewCell*)cell
+{
+    NSIndexPath *indexPath = [_myTableView indexPathForCell:cell];
+    NSDictionary *dict = _dataList[indexPath.row];
+    
+    NSString *result = [dict valueForKey:@"digest"];
+    return result;
+}
+-(NSString*)replyCountForNewsTableViewCell:(NewsTableViewCell*)cell
+{
+    NSIndexPath *indexPath = [_myTableView indexPathForCell:cell];
+    NSDictionary *dict = _dataList[indexPath.row];
+    
+    NSString *result = [dict valueForKey:@"replyCount"];
+    return result;
 }
 
 /*
