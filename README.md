@@ -35,6 +35,7 @@ Model要求不高，用原生数据类型或者jsonModel生成的都可以。
 
 
 ###总结
-Controller对Model和View的绝对控制权。
-Model通过Notification来通知Controller数据发生了变化。
-View通过Datasource或者Delegate来告知Controller自己发生了变化/是否需要发生变化。
+ - Controller对Model和View的绝对控制权。
+ - Model通过Notification来通知Controller数据发生了变化。
+ - View通过Datasource或者Delegate来告知Controller自己发生了变化/是否需要发生变化。
+ - Model和View不直接通信，没有任何关系。
