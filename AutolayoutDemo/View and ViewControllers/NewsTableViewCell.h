@@ -10,9 +10,13 @@
 
 @class NewsTableViewCell;
 @protocol NewsTableViewCellDataSource <NSObject>
+//图片
 -(NSString*)urlForNewsTableViewCell:(NewsTableViewCell*)cell;
+//标题
 -(NSString*)titleForNewsTableViewCell:(NewsTableViewCell*)cell;
+//附标题
 -(NSString*)digestForNewsTableViewCell:(NewsTableViewCell*)cell;
+//跟帖数量
 -(NSString*)replyCountForNewsTableViewCell:(NewsTableViewCell*)cell;
 @end
 
