@@ -39,8 +39,7 @@ extern NSTimeInterval const WTURLRequestSerializationTimeoutTimeInterval;
 
  GET请求
  */
-+(NSMutableURLRequest*)GETRequestWithURL:(NSString*)url
-                              parameters:(NSDictionary*)parameters;
+
 //实例的GET方法
 -(NSMutableURLRequest*)GETRequestWithURL:(NSString*)url
                               parameters:(NSDictionary*)parameters;
@@ -49,8 +48,7 @@ extern NSTimeInterval const WTURLRequestSerializationTimeoutTimeInterval;
  
  POST请求
  */
-+(NSMutableURLRequest*)POSTRequestWithURL:(NSString*)url
-                               parameters:(NSDictionary*)parameters;
+
 //实例的POST方法
 -(NSMutableURLRequest*)POSTRequestWithURL:(NSString*)url
                                parameters:(NSDictionary*)parameters;
@@ -59,7 +57,8 @@ extern NSTimeInterval const WTURLRequestSerializationTimeoutTimeInterval;
  
  支持数据上传的POST请求
  */
-+(NSMutableURLRequest*)POSTRequestWithURL:(NSString*)url
+
+-(NSMutableURLRequest*)POSTRequestWithURL:(NSString*)url
                                parameters:(NSDictionary*)parameters
                 constructingBodyWithBlock:(void (^)(id <WTMultipartFormData> formData))block;
 
@@ -68,13 +67,21 @@ extern NSTimeInterval const WTURLRequestSerializationTimeoutTimeInterval;
 /*!
     PUT请求
  */
-+(NSMutableURLRequest*)PUTRequestWithURL:(NSString*)url
+-(NSMutableURLRequest*)PUTRequestWithURL:(NSString*)url
                               parameters:(NSDictionary*)parameters;
+
+
 /*!
-    To Do head请求
+    DELETE 请求
  */
-+(NSMutableURLRequest*)HEADRequestWithURL:(NSString*)url
-                              parameters:(NSDictionary*)parameters;
+-(NSMutableURLRequest*)DELETERequestWithURL:(NSString*)url
+                                 parameters:(NSDictionary*)parameters;
+
+/*!
+    HEAD 请求
+ */
+-(NSMutableURLRequest*)HEADRequestWithURL:(NSString*)url
+                               parameters:(NSDictionary*)parameters;
 
 
 
@@ -105,7 +112,12 @@ extern NSTimeInterval const WTURLRequestSerializationTimeoutTimeInterval;
                       name:(NSString*)name;
 @end
 
-
+@interface WTJSONRequestSerialization : WTURLRequestSerialization
+//加上JSON请求
+- (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
+                               withParameters:(id)parameters
+                                        error:(NSError *__autoreleasing *)error;
+@end
 
 
 
