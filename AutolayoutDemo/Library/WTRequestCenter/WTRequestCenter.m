@@ -10,7 +10,7 @@
 #import "WTURLRequestOperation.h"
 #import "WTURLRequestSerialization.h"
 
-#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
+#if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 #endif
 //请求开始的消息
@@ -19,7 +19,7 @@ NSString * const WTNetworkingOperationDidStartNotification = @"WTNetworkingOpera
 NSString * const WTNetworkingOperationDidFinishNotification = @"WTNetworkingOperationDidFinishNotification";
 
 
-BOOL const WTRequestCenterDebugMode = NO;
+BOOL const WTRequestCenterDebugMode = YES;
 
 @implementation WTRequestCenter
 
@@ -171,52 +171,9 @@ static NSURLCache* sharedCache = nil;
                   finished:(WTRequestFinishedBlock)finished
                     failed:(WTRequestFailedBlock)failed
 {
-    NSURLRequest *request = [WTURLRequestSerialization GETRequestWithURL:url parameters:parameters];
+    NSURLRequest *request = [[WTURLRequestSerialization sharedRequestSerialization] GETRequestWithURL:url parameters:parameters];
 
     [self doURLRequest:request option:option finished:finished failed:failed];
-    
-    return request;
-}
-
-+(NSURLRequest*)getWithURL:(NSString*)url
-                parameters:(NSDictionary *)parameters
-                expireTime:(NSTimeInterval)time
-                  finished:(WTRequestFinishedBlock)finished
-                    failed:(WTRequestFailedBlock)failed
-{
-    NSURLRequest *request = [WTURLRequestSerialization GETRequestWithURL:url parameters:parameters];
-    
-    NSCachedURLResponse *cacheURLResponse = [[WTRequestCenter sharedCache] cachedResponseForRequest:request];
-    BOOL needRequest = YES;
-    if (cacheURLResponse) {
-        if ([cacheURLResponse.response isKindOfClass:[NSHTTPURLResponse class]])
-        {
-            NSHTTPURLResponse *tempResponse = (NSHTTPURLResponse*)cacheURLResponse.response;
-            NSDate *date = [WTURLRequestSerialization dateFromHTTPURLResponse:tempResponse];
-            NSTimeInterval responseTime = [date timeIntervalSince1970];
-            NSTimeInterval now = [[NSDate date] timeIntervalSince1970];
-            if (now-responseTime < time) {
-                needRequest = NO;
-            }
-            
-        }
-    }
-    
-    if (needRequest) {
-
-        [self getWithURL:url
-              parameters:parameters
-                finished:finished
-                  failed:failed];
-    }else
-    {
-        if (finished) {
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                finished(cacheURLResponse.response,cacheURLResponse.data);
-            }];
-            
-        }
-    }
     
     return request;
 }
@@ -230,7 +187,7 @@ static NSURLCache* sharedCache = nil;
                    finished:(WTRequestFinishedBlock)finished
                      failed:(WTRequestFailedBlock)failed
 {
-    NSURLRequest *request = [WTURLRequestSerialization POSTRequestWithURL:url parameters:parameters];
+    NSURLRequest *request = [[WTURLRequestSerialization sharedRequestSerialization] POSTRequestWithURL:url parameters:parameters];
     [self doURLRequest:request finished:finished failed:failed];
     return request;
 }
@@ -244,7 +201,7 @@ static NSURLCache* sharedCache = nil;
                    finished:(WTRequestFinishedBlock)finished
                      failed:(WTRequestFailedBlock)failed
 {
-    NSURLRequest *request = [WTURLRequestSerialization POSTRequestWithURL:url parameters:parameters constructingBodyWithBlock:block];
+    NSURLRequest *request = [[WTURLRequestSerialization sharedRequestSerialization] POSTRequestWithURL:url parameters:parameters constructingBodyWithBlock:block];
     [self doURLRequest:request finished:finished failed:failed];
     return request;
 }
@@ -255,8 +212,33 @@ static NSURLCache* sharedCache = nil;
                   finished:(WTRequestFinishedBlock)finished
                     failed:(WTRequestFailedBlock)failed
 {
-    NSURLRequest *request = [WTURLRequestSerialization PUTRequestWithURL:url parameters:parameters];
+    NSURLRequest *request = [[WTURLRequestSerialization sharedRequestSerialization] PUTRequestWithURL:url parameters:parameters];
     [self doURLRequest:request finished:finished failed:failed];
+    return request;
+}
+
++(NSURLRequest*)deleteWithURL:(NSString*)url
+                   parameters:(NSDictionary*)parameters
+                     finished:(WTRequestFinishedBlock)finished
+                       failed:(WTRequestFailedBlock)failed
+{
+    NSURLRequest *request = [[WTURLRequestSerialization sharedRequestSerialization] DELETERequestWithURL:url parameters:parameters];
+    [self doURLRequest:request
+              finished:finished
+                failed:failed];
+    return request;
+}
+
+
++(NSURLRequest*)headWithURL:(NSString*)url
+                 parameters:(NSDictionary*)parameters
+                   finished:(WTRequestFinishedBlock)finished
+                     failed:(WTRequestFailedBlock)failed
+{
+    NSURLRequest *request = [[WTURLRequestSerialization sharedRequestSerialization] HEADRequestWithURL:url parameters:parameters];
+    [self doURLRequest:request
+              finished:finished
+                failed:failed];
     return request;
 }
 
@@ -266,7 +248,15 @@ static NSURLCache* sharedCache = nil;
            finished:(WTRequestFinishedBlock)finished
              failed:(WTRequestFailedBlock)failed
 {
-//    有效性判断
+    [self doURLRequest:request finished:finished failed:failed shouldCache:NO];
+}
+
++(void)doURLRequest:(NSURLRequest*)request
+           finished:(WTRequestFinishedBlock)finished
+             failed:(WTRequestFailedBlock)failed
+        shouldCache:(BOOL)shouldCache
+{
+    //    有效性判断
     assert(request != nil);
     
     
@@ -289,7 +279,7 @@ static NSURLCache* sharedCache = nil;
         NSTimeInterval endTimeInterval = [[NSDate date] timeIntervalSince1970];
         
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            NSDictionary *userInfo = @{@"request": request};
+            NSDictionary *userInfo = @{@"request": request,@"response": response, @"data":data};
             [[NSNotificationCenter defaultCenter] postNotificationName:WTNetworkingOperationDidFinishNotification object:request userInfo:userInfo];
         }];
         
@@ -301,8 +291,11 @@ static NSURLCache* sharedCache = nil;
             }
         }else
         {
-            NSCachedURLResponse *tempURLResponse = [[NSCachedURLResponse alloc] initWithResponse:response data:data];
-            [[self sharedCache] storeCachedResponse:tempURLResponse forRequest:request];
+            if (shouldCache) {
+                NSCachedURLResponse *tempURLResponse = [[NSCachedURLResponse alloc] initWithResponse:response data:data];
+                [[self sharedCache] storeCachedResponse:tempURLResponse forRequest:request];
+            }
+
             if (WTRequestCenterDebugMode) {
                 NSLog(@"WTRequestCenter request finished:%@  time:%f",request,endTimeInterval-startTimeInterval);
             }
@@ -325,35 +318,13 @@ static NSURLCache* sharedCache = nil;
         }];
     };
     
-#if defined(__IPHONE_OS_VERSION_MIN_REQUIRED)
-    UIDevice *currentDevice = [UIDevice currentDevice];
-    if ([currentDevice.systemVersion floatValue]>=7.0) {
-        [[WTRequestCenter sharedQueue] addOperationWithBlock:^{
-
-            NSURLSessionDataTask *task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData *data, NSURLResponse *response, NSError *connectionError){
-                complection(response,data,connectionError);
-            }];
-            [task resume];
-        }];
-        
-        
-    }else
-    {
-        
-        [[WTRequestCenter sharedQueue] addOperationWithBlock:^{
-            [NSURLConnection sendAsynchronousRequest:request queue:[WTRequestCenter sharedQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                complection(response,data,connectionError);
-            }];
-  
-        }];
-    }
-#elif defined(__MAC_OS_X_VERSION_MIN_REQUIRED)
+    
     [[WTRequestCenter sharedQueue] addOperationWithBlock:^{
-    [NSURLConnection sendAsynchronousRequest:request queue:[WTRequestCenter sharedQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-        complection(response,data,connectionError);
+        [NSURLConnection sendAsynchronousRequest:request queue:[WTRequestCenter sharedQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
+            complection(response,data,connectionError);
+        }];
     }];
-    }];
-#endif
+    
     
 }
 
@@ -384,7 +355,7 @@ static NSURLCache* sharedCache = nil;
                 });
             }else
             {
-                [self doURLRequest:request finished:finished failed:failed];
+                [self doURLRequest:request finished:finished failed:failed shouldCache:YES];
             }
         }
             break;
@@ -415,7 +386,7 @@ static NSURLCache* sharedCache = nil;
                 [self doURLRequest:request finished:nil failed:nil];
             }else
             {
-                [self doURLRequest:request finished:finished failed:failed];
+                [self doURLRequest:request finished:finished failed:failed shouldCache:YES];
             }
             
             
@@ -430,10 +401,10 @@ static NSURLCache* sharedCache = nil;
                         finished(response.response,response.data);
                     }
                 });
-                [self doURLRequest:request finished:finished failed:failed];
+                [self doURLRequest:request finished:finished failed:failed shouldCache:YES];
             }else
             {
-                [self doURLRequest:request finished:finished failed:failed];
+                [self doURLRequest:request finished:finished failed:failed shouldCache:YES];
             }
             
             
@@ -501,9 +472,9 @@ static NSString * const baseURL = @"http://www.baidu.com";
                                  finished:(WTRequestFinishedBlock)finished
                                    failed:(WTRequestFailedBlock)failed
 {
-#pragma clang diagnostic push
-#pragma clang diagnostic ignored "-Warc-retain-cycles"
-#pragma clang diagnostic ignored "-Wgnu"
+//#pragma clang diagnostic push
+//#pragma clang diagnostic ignored "-Warc-retain-cycles"
+//#pragma clang diagnostic ignored "-Wgnu"
     WTURLRequestOperation *operation = nil;
     operation = [[WTURLRequestOperation alloc] initWithRequest:request];
     if (progress) {
@@ -523,7 +494,7 @@ static NSString * const baseURL = @"http://www.baidu.com";
     }];
     [[self sharedQueue] addOperation:operation];
     return operation;
-#pragma clang diagnostic pop
+//#pragma clang diagnostic pop
     
 }
 
@@ -638,7 +609,7 @@ static NSString * const baseURL = @"http://www.baidu.com";
                                finished:(WTRequestFinishedBlock)finished
                                  failed:(WTRequestFailedBlock)failed
 {
-    NSURLRequest *request = [WTURLRequestSerialization GETRequestWithURL:url parameters:parameters];
+    NSURLRequest *request = [[WTURLRequestSerialization sharedRequestSerialization]GETRequestWithURL:url parameters:parameters];
     WTURLRequestOperation *operation = [self testdoURLRequest:request option:option progress:progress finished:finished failed:failed];
     return operation;
 }
@@ -650,7 +621,7 @@ static NSString * const baseURL = @"http://www.baidu.com";
                                finished:(WTRequestFinishedBlock)finished
                                  failed:(WTRequestFailedBlock)failed
 {
-    NSURLRequest *request = [WTURLRequestSerialization POSTRequestWithURL:url parameters:parameters];
+    NSURLRequest *request = [[WTURLRequestSerialization sharedRequestSerialization] POSTRequestWithURL:url parameters:parameters];
     WTURLRequestOperation *operation = [self testdoURLRequest:request progress:nil finished:finished failed:failed];
     return operation;
 }
